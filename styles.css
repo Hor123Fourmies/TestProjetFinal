@@ -1,0 +1,41 @@
+li{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.nav_active{
+    color: green;
+   background: whitesmoke;
+}
+
+body{
+    font-family: Candara;
+    background: beige;
+}
+
+#dataUpdate{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.titre{
+    color:red;
+}
+
+@keyframes opacite {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.texte{
+    color:darkolivegreen;
+    padding-right:10px;
+    animation-name: opacite;
+    animation-duration: 2s;
+}
+
