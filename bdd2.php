@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -20,31 +20,62 @@ $conn->select_db($dbname);
 
 <?php
 
-$sql = "SELECT id, image, titre, texte FROM patrimoine";
+$sql_theme = "SELECT id, titre_theme FROM theme";
+$result_theme = $conn->query($sql_theme);
+echo $conn->error;
+
+
+while ($row = $result_theme->fetch_assoc()) {
+
+$idTh = $row['id'];
+$titre_theme = $row["titre_theme"];
+
+
+?>
+
+
+
+<div class ="divTheme">
+    <span><?php echo $idTh?></span>
+    <h2><?php echo $titre_theme?></h2>
+</div>
+
+
+<?php
+
+$sql = "SELECT id, photo, titre_site, texte FROM site WHERE id_theme = $idTh";
 $result = $conn->query($sql);
 echo $conn->error;
 
 
 while ($row = $result->fetch_assoc()) {
 
-$titre = $row['titre'];
+$titre = $row['titre_site'];
 $texte = $row['texte'];
-    ?>
 
+?>
 
-    <div>
+<div class = "divGeneral">
+<div class ="divSite">
 
-        <span><?php echo $row['id'] . "<br>" ?></span>
-        <div><img src="<?php echo $row["image"] ?>\"></div>
-        <h3 class="titre"><?php echo $titre?></h3>
-        <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
+    <span><?php echo $row['id'] . "<br>" ?></span>
+    <div><img src="<?php echo $row["photo"] ?>\"></div>
+    <h3 class="titre"><?php echo utf8_encode($titre) ?></h3>
+    <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 
-    </div>
-
+</div>
+</div>
 <?php
 }
 
 
-?>
+
+
+
+
+
+
+}
+
 
 

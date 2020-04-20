@@ -9,7 +9,7 @@ a{
 
 .nav_active{
     color: green;
-   background: whitesmoke;
+    background: whitesmoke;
 }
 
 body{
@@ -17,10 +17,18 @@ body{
     background: beige;
 }
 
-#dataUpdate{
+.divGeneral{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.divTheme{
+
+}
+
+.divSite{
+
 }
 
 .titre{
