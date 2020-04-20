@@ -1,3 +1,10 @@
+<?php
+
+include "nav.php";
+
+define('PAGE', 'indexAjax');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

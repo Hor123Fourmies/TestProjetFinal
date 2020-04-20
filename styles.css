@@ -7,6 +7,10 @@ a{
     color:black;
 }
 
+nav{
+    background: skyblue;
+}
+
 .nav_active{
     color: green;
     background: whitesmoke;
@@ -17,22 +21,18 @@ body{
     background: beige;
 }
 
-.divGeneral{
+#flexSite{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-.divTheme{
-
-}
-
-.divSite{
-
+h2{
+    color:seagreen;
 }
 
 .titre{
-    color:red;
+    color:lightpink;
 }
 
 @keyframes opacite {

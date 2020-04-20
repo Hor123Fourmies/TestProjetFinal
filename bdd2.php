@@ -1,5 +1,6 @@
 
 <?php
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -40,7 +41,7 @@ $titre_theme = $row["titre_theme"];
     <h2><?php echo $titre_theme?></h2>
 </div>
 
-
+<div id="flexSite">
 <?php
 
 $sql = "SELECT id, photo, titre_site, texte FROM site WHERE id_theme = $idTh";
@@ -55,7 +56,6 @@ $texte = $row['texte'];
 
 ?>
 
-<div class = "divGeneral">
 <div class ="divSite">
 
     <span><?php echo $row['id'] . "<br>" ?></span>
@@ -64,16 +64,16 @@ $texte = $row['texte'];
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 
 </div>
-</div>
+
+
+
+
 <?php
 }
+?>
+</div>
 
-
-
-
-
-
-
+<?php
 
 }
 
