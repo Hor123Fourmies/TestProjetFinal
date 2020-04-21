@@ -1,14 +1,13 @@
-li{
-    display: inline;
-}
-
-a{
-    text-decoration: none;
-    color:black;
+body{
+    font-family: Candara;
+    background: cornsilk;
 }
 
 nav{
-    background: skyblue;
+    background: lightgrey;
+    border: 1px solid darkgrey;
+    height: 80px;
+    display: flex;
 }
 
 .nav_active{
@@ -16,15 +15,35 @@ nav{
     background: whitesmoke;
 }
 
-body{
-    font-family: Candara;
-    background: beige;
+ul{
+    margin: auto;
+    text-align: center;
+}
+
+li{
+    display: inline;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+ul li a:hover{
+    font-size: 17px;
+    color:darkslateblue;
 }
 
 #flexSite{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.divSite{
+    padding-left: 20px;
 }
 
 h2{
@@ -32,7 +51,8 @@ h2{
 }
 
 .titre{
-    color:lightpink;
+    color:indianred;
+    width: 300px;
 }
 
 @keyframes opacite {
@@ -44,6 +64,7 @@ h2{
     color:darkolivegreen;
     padding-right:10px;
     animation-name: opacite;
-    animation-duration: 2s;
+    animation-duration: 4s;
+    width: 300px;
 }
 

@@ -1,8 +1,8 @@
 <?php
-
+define('PAGE', 'contact');
 include "nav.php";
 
-define('PAGE', 'contact');
+
 
 echo "Formulaire de contact";
 

@@ -18,7 +18,7 @@ $conn->select_db($dbname);
     <title></title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
+<body>
 <?php
 
 $sql_theme = "SELECT id, titre_theme FROM theme";
@@ -67,7 +67,6 @@ $texte = $row['texte'];
 
 
 
-
 <?php
 }
 ?>
@@ -76,6 +75,7 @@ $texte = $row['texte'];
 <?php
 
 }
+?>
 
-
-
+</body>
+</html>

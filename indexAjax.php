@@ -1,8 +1,8 @@
 <?php
-
-include "nav.php";
-
 define('PAGE', 'indexAjax');
+include "nav.php";
+//include "bdd2.php";
+
 ?>
 
 <!DOCTYPE html>
