@@ -44,7 +44,7 @@ $titre_theme = $row["titre_theme"];
 <div id="flexSite">
 <?php
 
-$sql = "SELECT id, photo, titre_site, texte FROM site WHERE id_theme = $idTh";
+$sql = "SELECT id, photo, titre_site, commune, texte FROM site WHERE id_theme = $idTh";
 $result = $conn->query($sql);
 echo $conn->error;
 
@@ -53,14 +53,16 @@ while ($row = $result->fetch_assoc()) {
 
 $titre = $row['titre_site'];
 $texte = $row['texte'];
+$commune = $row['commune'];
 
 ?>
 
 <div class ="divSite">
 
     <span><?php echo $row['id'] . "<br>" ?></span>
-    <div><img src="<?php echo $row["photo"] ?>\"></div>
-    <h3 class="titre"><?php echo utf8_encode($titre) ?></h3>
+    <div><a href="contact.php"><img src="<?php echo $row["photo"] ?>\"></a></div>
+    <a href="contact.php"><h4 class="titre"><?php echo utf8_encode($titre) ?></h4></a>
+    <h5><?php echo utf8_encode($commune)?></h5>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 
 </div>
