@@ -22,7 +22,7 @@
         <ul>
             <li><a <?php if(PAGE == 'accueil'){ echo ' class="nav_active"'; } ?> href="accueil.php">Accueil</a></li>
             <li><a <?php if(PAGE == 'indexAjax'){ echo ' class="nav_active"'; } ?> href="indexAjax.php">Sites</a></li>
-            <li><a <?php if(PAGE == 'contact'){ echo ' class="nav_active"'; } ?> href="contact.php">Contact</a></li>
+            <li><a <?php if(PAGE == 'contact'){ echo ' class="nav_active"'; } ?> href="contact_form.php">Contact</a></li>
         </ul>
 
     </nav>

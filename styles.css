@@ -1,8 +1,9 @@
 body{
-    background: cornsilk;
+    background: antiquewhite;
     font-family: "Montserrat";
 }
 
+/* Barre nav */
 nav{
     background: lightgrey;
     border: 1px solid darkgrey;
@@ -35,6 +36,7 @@ ul li a:hover{
     color:darkslateblue;
 }
 
+/* Sites */
 #flexSite{
     display: flex;
     flex-direction: row;
@@ -66,5 +68,63 @@ h2{
     animation-name: opacite;
     animation-duration: 4s;
     width: 300px;
+}
+
+img{
+    box-shadow: 4px 4px 8px #888888;
+}
+
+
+/* Formulaire contact */
+
+form{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+fieldset{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 5%;
+}
+
+label{
+    display:inline-block;
+    vertical-align: top;
+    width:100px;
+}
+
+input{
+    display:inline-block;
+    width: 400px;
+}
+
+textarea{
+    width: 400px;
+    overflow: auto;
+}
+
+input[type=submit]{
+    color:#fff;
+    background-color:darkgrey;
+    width: 200px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+    color:darkgrey;
+    cursor: pointer;
+}
+
+h3{
+    text-align: center;
+}
+
+.messErrContactForm{
+    color:darkred;
 }
 
