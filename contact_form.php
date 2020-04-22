@@ -16,17 +16,16 @@ if (!empty($_POST)) {
         $erreur_nom = "Vous n'avez pas rempli votre nom.";
     }
 
-    if(!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$/", $email))  {
-            $valide  = false;
-            $erreur_email2 = "Votre email n'est pas valide.";
+    if (!preg_match("/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i", $email))  {
+        $valide  = false;
+        $erreur_email = "Votre email n'est pas valide.";
     }
 
-   /*
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $valide = false;
-            $erreur_email = "Votre email n'est pas valide.";
-        }
-*/
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $valide = false;
+        $erreur_email = "Votre email n'est pas valide.";
+    }
+
     if (empty($email)) {
         $valide = false;
         $erreur_email = "Vous n'avez pas rempli votre mail.";
@@ -75,8 +74,6 @@ if (!empty($_POST)) {
             <label for="email">Email :</label>
             <input type="text" name="email" id="email" value="<?php if(isset($email)) echo $email?> "/>
             <span class="messErrContactForm"><?php if(isset($erreur_email)) echo $erreur_email?></span>
-            <span class="messErrContactForm"><?php if(isset($erreur_email2)) echo $erreur_email2?></span>
-
 
         </p>
 
