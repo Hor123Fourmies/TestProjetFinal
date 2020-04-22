@@ -66,13 +66,13 @@ if (!empty($_POST)) {
 
         <p>
             <label for="nom">Nom :</label>
-            <input type="text" name="nom" id="nom" value="<?php if(isset($nom)) echo $nom?> "/>
+            <input type="text" name="nom" id="nom" value="<?php if(isset($nom)) echo $nom?>"/>
             <span class="messErrContactForm"><?php if(isset($erreur_nom)) echo $erreur_nom?></span>
         </p>
 
         <p>
             <label for="email">Email :</label>
-            <input type="text" name="email" id="email" value="<?php if(isset($email)) echo $email?> "/>
+            <input type="text" name="email" id="email" value="<?php if(isset($email)) echo $email?>"/>
             <span class="messErrContactForm"><?php if(isset($erreur_email)) echo $erreur_email?></span>
 
         </p>
@@ -85,7 +85,7 @@ if (!empty($_POST)) {
 
         <p>
             <label for="objet">Objet :</label>
-            <input type="text" name="objet" id="objet" value="<?php if(isset($objet)) echo $objet?>" />
+            <input type="text" name="objet" id="objet" value="<?php if(isset($objet)) echo $objet?>"/>
         </p>
 
         <p>
@@ -96,7 +96,7 @@ if (!empty($_POST)) {
 
     </fieldset>
 
-    <div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer votre message" /></div>
+    <div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer votre message"/></div>
 
 </form>
 
