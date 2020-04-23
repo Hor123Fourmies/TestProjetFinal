@@ -6,7 +6,7 @@ include "nav.php";
 if (!empty($_POST)) {
     $nom = $_POST['nom'];
     $email = $_POST['email'];
-    $objet = $_POST['objet'];
+    // $objet = $_POST['objet'];
     $message = $_POST['message'];
 
     $valide = true;
@@ -38,6 +38,20 @@ if (!empty($_POST)) {
 
     if ($valide) {
         echo 'tous les champs sont bien remplis';
+        $to = "hortensere@aol.com";
+        $sujet = $nom . " a contacté le site";
+
+        if (mail($to, $sujet, $message)){
+            $retourMailOk = "Votre message nous est bien parvenu";
+            /* Nettoyage des variables */
+            unset($nom);
+            unset($email);
+            unset($message);
+
+        }
+        else{
+            $erreur = "Une erreur est survenue et votre mail n'est pas parti.";
+        }
     }
 }
 ?>
@@ -57,6 +71,10 @@ if (!empty($_POST)) {
 
 <h3> Formulaire de contact </h3>
 
+<?php
+if(isset($erreur)){echo "<p>$erreur</p>";}
+if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
+?>
 
 <form id="contact_form" method="post" action="contact_form.php">
 
@@ -83,11 +101,16 @@ if (!empty($_POST)) {
 
         <legend>Votre message :</legend>
 
+<!--
         <p>
             <label for="objet">Objet :</label>
-            <input type="text" name="objet" id="objet" value="<?php if(isset($objet)) echo $objet?>"/>
-        </p>
+            <input type="text" name="objet" id="objet" value="
+            /*
 
+            */
+            "/>
+        </p>
+-->
         <p>
             <label for="message">Message :</label>
             <textarea name="message" id="message" cols="20" rows="10"></textarea>
