@@ -5,56 +5,69 @@ include "nav.php";
 
 if (!empty($_POST)) {
     $nom = $_POST['nom'];
+    $adresse = $_POST['adresse'];
     $email = $_POST['email'];
     // $objet = $_POST['objet'];
     $message = $_POST['message'];
 
     $valide = true;
 
-    if (empty($nom)) {
+    if ($adresse !=" "){
         $valide = false;
-        $erreur_nom = "Vous n'avez pas rempli votre nom.";
     }
+    else{
 
-    if (!preg_match("/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i", $email))  {
-        $valide  = false;
-        $erreur_email = "Votre email n'est pas valide.";
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $valide = false;
-        $erreur_email = "Votre email n'est pas valide.";
-    }
-
-    if (empty($email)) {
-        $valide = false;
-        $erreur_email = "Vous n'avez pas rempli votre mail.";
-    }
-
-    if (empty($message)) {
-        $valide = false;
-        $erreur_message = "Vous n'avez pas rempli votre message.";
-    }
-
-    if ($valide) {
-        echo 'tous les champs sont bien remplis';
-        $to = "hortensere@aol.com";
-        $sujet = $nom . " a contacté le site";
-
-        if (mail($to, $sujet, $message)){
-            $retourMailOk = "Votre message nous est bien parvenu";
-            /* Nettoyage des variables */
-            unset($nom);
-            unset($email);
-            unset($message);
-
+        if (empty($nom)) {
+            $valide = false;
+            $erreur_nom = "Vous n'avez pas rempli votre nom.";
         }
-        else{
-            $erreur = "Une erreur est survenue et votre mail n'est pas parti.";
+
+        if (!preg_match("/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i", $email)) {
+            $valide = false;
+            $erreur_email = "Votre email n'est pas valide.";
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $valide = false;
+            $erreur_email = "Votre email n'est pas valide.";
+        }
+
+        if (empty($email)) {
+            $valide = false;
+            $erreur_email = "Vous n'avez pas rempli votre mail.";
+        }
+
+        if (empty($message)) {
+            $valide = false;
+            $erreur_message = "Vous n'avez pas rempli votre message.";
+        }
+
+        if ($valide) {
+            echo 'tous les champs sont bien remplis';
+            $to = "hortensere@aol.com";
+            $sujet = $nom . " a contacté le site";
+            /* Anti-spam + retour à la ligne */
+            $header = "From : testProjet@test.be \n";
+            $header .= "Reply-To : $email";
+            /* Suppression des antislashes */
+            $nom = stripslashes($nom);
+            $message = stripslashes($message);
+
+            if (mail($to, $sujet, $message, $header)) {
+                $retourMailOk = "Votre message nous est bien parvenu";
+                /* Nettoyage des variables */
+                unset($nom);
+                unset($email);
+                unset($message);
+
+            } else {
+                $erreur = "Une erreur est survenue et votre mail n'est pas parti.";
+            }
         }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,6 +108,8 @@ if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
 
         </p>
 
+            <input type="hidden" name="adresse" id="input_adresse">
+
     </fieldset>
 
     <fieldset>
@@ -119,10 +134,9 @@ if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
 
     </fieldset>
 
-    <div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer votre message"/></div>
+    <div style="text-align:center;"><input type="submit" name="envoi" id="btnEnvoyerFormContact" value="Envoyer votre message"/></div>
 
 </form>
-
 
 </body>
 </html>

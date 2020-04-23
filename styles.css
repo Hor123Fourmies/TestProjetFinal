@@ -1,6 +1,6 @@
 body{
     background: antiquewhite;
-    font-family: Candara;
+    font-family: "Montserrat";
 }
 
 /* Barre nav */
@@ -98,6 +98,9 @@ input{
     width: 400px;
 }
 
+#input_adresse{
+    visibility: hidden;
+}
 textarea{
     width: 400px;
     overflow: auto;
