@@ -2,13 +2,66 @@
 define('PAGE', 'inscription');
 include "nav.php";
 
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "project";
+
+$pseudo = ($_POST['pseudo']);
+$motDePasse = $_POST['mdp'];
+$confMotDePasse = $_POST['mdp2'];
+$email = $_POST['email'];
+
+/* Test : le visiteur a-t-il soumis le formulaire ? */
+
+    /* Vérification de l'existence des variables. On vérifie aussi qu'elles ne soient pas vides */
+    if ((isset($pseudo) && !empty($pseudo)) && (isset($motDePasse) && !empty($motDePasse))
+        && (isset($confMotDePasse) && !empty($confMotDePasse)) && (isset($email) && !empty($email))  ) {
+        /* on compare les deux mots de passe */
+        if ($motDePasse != $confMotDePasse) {
+            $erreur = 'Les deux mots de passe sont différents.';
+        }
+        else {
+            $conn = new mysqli($servername, $username, $password);
+            $conn->select_db($dbname);
+            $motDePasse = sha1($motDePasse);
+
+            /* on recherche si ce pseudo est déjà utilisé par un autre user */
+
+            $sql = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
+            $row = mysqli_fetch_assoc($sql);
+            $data = $row['COUNT(*)'];
+
+            if ($data[0] == 0) {
+                $sql_inscription = "INSERT INTO user_validation VALUES(NULL,'$pseudo', '$motDePasse', '$email')";
+
+                if ($conn->query($sql_inscription)) {
+
+                    echo "ok";
+                    session_start();
+                    $_SESSION['pseudo'] = $pseudo;
+                   // header('onglet1.php');
+                   // exit();
+                }
+            }
+            else {
+                $erreur = 'Un membre possède déjà ce pseudo.';
+            }
+        }
+    }
+    else {
+        $erreur = 'Au moins un des champs est vide.';
+    }
+
 ?>
+
 
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Inscription</title>
         <link rel="stylesheet" href="styles.css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     </head>
@@ -51,21 +104,18 @@ include "nav.php";
                 <input type="hidden" name="adresse" id="input_adresse">
             </p>
 
-            <input type="submit" name="envoi" value="M'inscrire"/>
+            <input type="submit" name="envoi" value="Inscription"/>
 
+</fieldset>
 
-        </fieldset>
-
-    </form>
-    </body>
-</html>
 
 <?php
+if (isset($erreur)) echo '<br />',$erreur;
+?>
+</body>
+</html>
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "project";
+
 
 if(!empty($_POST)){
     $pseudo = ($_POST['pseudo']);
@@ -92,43 +142,38 @@ if(!empty($_POST)){
         $motDePasse = sha1($motDePasse);
 
         $sql_inscription = "INSERT INTO user_validation VALUES(NULL,'$pseudo', '$motDePasse', '$email')";
-        if ($conn->query($sql_inscription)) {
+            if ($conn->query($sql_inscription)) {
 
             ?>
-            <p><?php echo "Merci $pseudo. Votre inscription a bien été prise en compte. Elle va être soumise à validation."; ?></p>
+            echo "Merci $pseudo. Votre inscription a bien été prise en compte. Elle va être soumise à validation."; ?>
 
-            <?php
-        }
-        else {
+            else {
 
             ?>
-            <p><?php echo "Les deux mots de passe que vous avez rentrés ne correspondent pas..."; ?></p>
+            echo "Les deux mots de passe que vous avez rentrés ne correspondent pas..."; ?>
+            }
+            }
+            }
 
-            <?php
-        }
-    }
-}
+            /*
+            if(empty($pseudo)){
+            $valide = false;
+            $erreur_pseudo = "Vous n'avez pas rempli votre pseudo.";
+            }
 
-/*
-if(empty($pseudo)){
-    $valide = false;
-    $erreur_pseudo = "Vous n'avez pas rempli votre pseudo.";
-}
+            if(empty($motDePasse)){
+            $valide = false;
+            $erreur_mdp = "Vous n'avez pas rempli votre mot de passe.";
+            }
 
-if(empty($motDePasse)){
-    $valide = false;
-    $erreur_mdp = "Vous n'avez pas rempli votre mot de passe.";
-}
+            if(empty($confMotDePasse)){
+            $valide = false;
+            $erreur_mdp2 = "Vous n'avez pas confirmé votre mot de passe.";
+            }
 
-if(empty($confMotDePasse)){
-    $valide = false;
-    $erreur_mdp2 = "Vous n'avez pas confirmé votre mot de passe.";
-}
-
-if(empty($email)){
-    $valide = false;
-    $erreur_email = "Vous n'avez pas rempli votre email.";
-}
-*/
-?>
-
+            if(empty($email)){
+            $valide = false;
+            $erreur_email = "Vous n'avez pas rempli votre email.";
+            }
+            */
+            ?>

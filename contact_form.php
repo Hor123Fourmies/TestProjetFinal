@@ -3,7 +3,7 @@ define('PAGE', 'contact');
 include "nav.php";
 
 
-if (!empty($_POST)) {
+if (!empty($_POST['contact_form'])) {
     $nom = $_POST['nom'];
     $adresse = $_POST['adresse'];
     $email = $_POST['email'];
