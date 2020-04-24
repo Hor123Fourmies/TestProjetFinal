@@ -82,7 +82,7 @@ form{
     margin-right: 10%;
 }
 
-fieldset {
+fieldset{
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 20px;
@@ -91,7 +91,14 @@ fieldset {
 label{
     display:inline-block;
     vertical-align: top;
-    width: 200px;
+}
+
+#contact_form label{
+    width: 100px;
+}
+
+#inscription_form label{
+    width: 300px;
 }
 
 input{

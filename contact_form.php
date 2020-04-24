@@ -3,7 +3,7 @@ define('PAGE', 'contact');
 include "nav.php";
 
 
-if (!empty($_POST['contact_form'])) {
+if (!empty($_POST['envoiMessage'])) {
     $nom = $_POST['nom'];
     $adresse = $_POST['adresse'];
     $email = $_POST['email'];
@@ -12,9 +12,9 @@ if (!empty($_POST['contact_form'])) {
 
     $valide = true;
 
-    if (!empty($adresse)){
-        $valide = false;
-    }
+        if (!empty($adresse)){
+            $valide = false;
+        }
     else{
 
         if (empty($nom)) {
@@ -133,9 +133,9 @@ if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
 
     </fieldset>
 
-    <div style="text-align:center;"><input type="submit" name="envoi" id="btnEnvoyerFormContact" value="Envoyer votre message"/></div>
+    <div style="text-align:center;"><input type="submit" name="envoiMessage" id="btnEnvoyerFormContact" value="Envoyer votre message"/></div>
 
 </form>
-
 </body>
-</html>
+
+

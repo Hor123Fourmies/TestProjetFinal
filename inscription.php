@@ -12,16 +12,22 @@ $pseudo = ($_POST['pseudo']);
 $motDePasse = $_POST['mdp'];
 $confMotDePasse = $_POST['mdp2'];
 $email = $_POST['email'];
+$erreurs = 'erreur';
 
 /* Test : le visiteur a-t-il soumis le formulaire ? */
+if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
     /* Vérification de l'existence des variables. On vérifie aussi qu'elles ne soient pas vides */
+
     if ((isset($pseudo) && !empty($pseudo)) && (isset($motDePasse) && !empty($motDePasse))
-        && (isset($confMotDePasse) && !empty($confMotDePasse)) && (isset($email) && !empty($email))  ) {
+        && (isset($confMotDePasse) && !empty($confMotDePasse)) && (isset($email) && !empty($email))) {
+
         /* on compare les deux mots de passe */
+
         if ($motDePasse != $confMotDePasse) {
-            $erreur = 'Les deux mots de passe sont différents.';
+            $erreur_mdp2 = 'Les deux mots de passe sont différents.';
         }
+
         else {
             $conn = new mysqli($servername, $username, $password);
             $conn->select_db($dbname);
@@ -31,28 +37,38 @@ $email = $_POST['email'];
 
             $sql = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
             $row = mysqli_fetch_assoc($sql);
-            $data = $row['COUNT(*)'];
+            $doublon = $row['COUNT(*)'];
 
-            if ($data[0] == 0) {
+            if ($doublon[0] == 0) {
                 $sql_inscription = "INSERT INTO user_validation VALUES(NULL,'$pseudo', '$motDePasse', '$email')";
-
-                if ($conn->query($sql_inscription)) {
-
+                $conn->query($sql_inscription);
                     echo "ok";
                     session_start();
                     $_SESSION['pseudo'] = $pseudo;
-                   // header('onglet1.php');
-                   // exit();
-                }
-            }
-            else {
-                $erreur = 'Un membre possède déjà ce pseudo.';
+                    // header('onglet1.php');
+                    // exit();
+            } else {
+                $erreur_doublon = 'Un membre possède déjà ce pseudo.';
+                echo $erreur_doublon;
+                // retour à la page ??
             }
         }
+    } else {
+
+        if (empty($pseudo)){
+            $erreur_pseudo = "Veuillez indiquer votre pseudo";
+        }
+
+        if (empty($motDePasse)){
+            $erreur_mdp =  "Veuillez indiquer votre mot de passe";
+        }
+
+        if (empty($email)){
+            $erreur_email =  "Veuillez indiquer votre email";
+        }
+
     }
-    else {
-        $erreur = 'Au moins un des champs est vide.';
-    }
+}
 
 ?>
 
@@ -104,7 +120,7 @@ $email = $_POST['email'];
                 <input type="hidden" name="adresse" id="input_adresse">
             </p>
 
-            <input type="submit" name="envoi" value="Inscription"/>
+            <input type="submit" name="inscription" value="Inscription"/>
 
 </fieldset>
 
