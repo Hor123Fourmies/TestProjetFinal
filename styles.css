@@ -1,6 +1,6 @@
 body{
     background: antiquewhite;
-    font-family: "Montserrat";
+    font-family: Montserrat, sans-serif;
 }
 
 /* Barre nav */
@@ -75,7 +75,7 @@ img{
 }
 
 
-/* Formulaire contact */
+/* Formulaire contact + inscription */
 
 form{
     margin-left: 10%;
@@ -85,12 +85,13 @@ form{
 fieldset {
     padding-left: 10%;
     padding-right: 10%;
+    margin-top: 20px;
 }
 
 label{
     display:inline-block;
     vertical-align: top;
-    width:100px;
+    width: 200px;
 }
 
 input{
@@ -127,4 +128,5 @@ h3{
 .messErrContactForm{
     color:darkred;
 }
+
 

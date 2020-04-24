@@ -12,7 +12,7 @@ if (!empty($_POST)) {
 
     $valide = true;
 
-    if ($adresse !=" "){
+    if (!empty($adresse)){
         $valide = false;
     }
     else{
@@ -47,13 +47,12 @@ if (!empty($_POST)) {
             $to = "hortensere@aol.com";
             $sujet = $nom . " a contacté le site";
             /* Anti-spam + retour à la ligne */
-            $header = "From : testProjet@test.be \n";
-            $header .= "Reply-To : $email";
+            $headers = "From : testProjet@test.be" . '\r\n' ."Reply-To : $email" . '\r\n';
             /* Suppression des antislashes */
             $nom = stripslashes($nom);
             $message = stripslashes($message);
 
-            if (mail($to, $sujet, $message, $header)) {
+            if (mail($to, $sujet, $message, $headers)) {
                 $retourMailOk = "Votre message nous est bien parvenu";
                 /* Nettoyage des variables */
                 unset($nom);
