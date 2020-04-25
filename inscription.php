@@ -18,10 +18,11 @@ function verifDonneesForm($donnees_form){
     return $donnees_form;
 }
 
-
 $pseudo = verifDonneesForm($_POST['pseudo']);
-$motDePasse = verifDonneesForm($_POST['mdp']);
-$confMotDePasse = verifDonneesForm($_POST['mdp2']);
+
+$motDePasse = ($_POST['mdp']);
+$confMotDePasse = ($_POST['mdp2']);
+
 $email = ($_POST['email']);
 
 
@@ -30,25 +31,21 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
     /* Vérification de l'existence des variables. On vérifie aussi qu'elles ne soient pas vides */
 
-    if ((isset($pseudo) && !empty($pseudo)) && (isset($motDePasse) && !empty($motDePasse))
+    if ((isset($pseudo) && !empty($pseudo)) && (strlen($pseudo<=25)) && (isset($motDePasse) && !empty($motDePasse))
         && (isset($confMotDePasse) && !empty($confMotDePasse)) && (isset($email) && !empty($email))) {
 
         /* on compare les deux mots de passe */
 
         if ($motDePasse != $confMotDePasse) {
-            $erreur_mdp2 = 'Les deux mots de passe sont différents.';
-        }
-
-        if (strlen($pseudo>5)){
-            echo 'nom trop long';
+            $erreur_mdp2 = "Les deux mots de passe sont différents.";
         }
 
         if(!preg_match("^[A-Za-Z '-]+$", $pseudo)){
-            echo 'erreur de caractères';
+            $erreur_pseudo2 = "Certains caractères utilisés ne sont pas autorisés";
         }
 
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            echo 'mail non valide';
+            $erreur_email2 = "Votre email n'est pas valide";
         }
 
         else {
@@ -69,7 +66,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                     // $redirection = "Redirection automatique vers la page 'connexion...'";
                     // session_start();
                     // $_SESSION['pseudo'] = $pseudo;
-                    header("refresh:5", "connexion.php");
+                    // header("refresh:5", "connexion.php");
                     //exit();
                     }
                 else{
@@ -121,8 +118,9 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <p>
                 <label for="pseudo">Pseudo :</label>
-                <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-Z '-]+$" maxlength="20"/>
+                <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-Z '-]+$" maxlength="25"/>
                 <span class="messErrInscription"><?php if (isset($erreur_pseudo)) echo $erreur_pseudo ?></span>
+                <span class="messErrInscription"><?php if (isset($erreur_pseudo2)) echo $erreur_pseudo2 ?></span>
                 <span class="messErrInscription"><?php if (isset($erreur_doublon)) echo $erreur_doublon ?></span>
 
             </p>
@@ -143,6 +141,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                 <label for="email">Email :</label>
                 <input type="text" name="email" id="email"/>
                 <span class="messErrInscription"><?php if (isset($erreur_email)) echo $erreur_email ?></span>
+                <span class="messErrInscription"><?php if (isset($erreur_email2)) echo $erreur_email2 ?></span>
             </p>
 
             <P>
