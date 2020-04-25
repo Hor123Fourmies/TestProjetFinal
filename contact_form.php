@@ -11,6 +11,7 @@ if (!empty($_POST['envoiMessage'])) {
     $message = $_POST['message'];
 
     $valide = true;
+    $filter_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
         if (!empty($adresse)){
             $valide = false;
@@ -27,7 +28,7 @@ if (!empty($_POST['envoiMessage'])) {
             $erreur_email = "Votre email n'est pas valide.";
         }
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($filter_email, FILTER_VALIDATE_EMAIL)) {
             $valide = false;
             $erreur_email = "Votre email n'est pas valide.";
         }

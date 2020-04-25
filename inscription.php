@@ -8,7 +8,7 @@ $username = "root";
 $password = "";
 $dbname = "project";
 
-function verifDonneesForm($donnees_form){
+function secureDonneesForm($donnees_form){
     // neutralisation des <>
     $donnees_form = htmlspecialchars($donnees_form);
     // Suppression des espaces inutiles
@@ -18,12 +18,28 @@ function verifDonneesForm($donnees_form){
     return $donnees_form;
 }
 
-$pseudo = verifDonneesForm($_POST['pseudo']);
+$pseudo = ($_POST['pseudo']);
+$pseudo = secureDonneesForm($pseudo);
 
 $motDePasse = ($_POST['mdp']);
 $confMotDePasse = ($_POST['mdp2']);
 
 $email = ($_POST['email']);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+
+$valide = true;
+
+/*
+if (!preg_match("^[A-Za-Z'-]+$", $pseudo)){
+    $valide = false;
+    $erreur_pseudo2 = "Certains caractères ne sont pas autorisés";
+}
+
+
+
+
+*/
+
 
 
 /* Test : le visiteur a-t-il soumis le formulaire ? */
@@ -31,24 +47,26 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
     /* Vérification de l'existence des variables. On vérifie aussi qu'elles ne soient pas vides */
 
-    if ((isset($pseudo) && !empty($pseudo)) && (strlen($pseudo<=25)) && (isset($motDePasse) && !empty($motDePasse))
+    if ((isset($pseudo) && !empty($pseudo)) && (isset($motDePasse) && !empty($motDePasse))
         && (isset($confMotDePasse) && !empty($confMotDePasse)) && (isset($email) && !empty($email))) {
 
-        /* on compare les deux mots de passe */
+        if (strlen($pseudo) < 3){
+            $valide = false;
+            echo 'mdp trop court';
+        }
 
+        /* on compare les deux mots de passe */
         if ($motDePasse != $confMotDePasse) {
+            $valide = false;
             $erreur_mdp2 = "Les deux mots de passe sont différents.";
         }
 
-        if(!preg_match("^[A-Za-Z '-]+$", $pseudo)){
-            $erreur_pseudo2 = "Certains caractères utilisés ne sont pas autorisés";
-        }
-
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $erreur_email2 = "Votre email n'est pas valide";
+            $valide = false;
+            $erreur_email2 = "Votre adresse email n'est pas valide";
         }
 
-        else {
+        if ($valide){
             $conn = new mysqli($servername, $username, $password);
             $conn->select_db($dbname);
             $motDePasse = sha1($motDePasse);
@@ -60,8 +78,8 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
             $doublon = $row['COUNT(*)'];
 
             if ($doublon[0] == 0) {
-                $sql_inscription = "INSERT INTO user_validation VALUES(NULL,'$pseudo', '$motDePasse', '$email')";
-                if ($conn->query($sql_inscription) === true) {
+                $sql_inscription = "INSERT INTO user_validation VALUES(NULL, '$pseudo', '$motDePasse', '$email')";
+                if ($conn->query($sql_inscription) === TRUE) {
                     $insertion = "Merci $pseudo. Votre inscription a bien été prise en compte. Elle va être soumise à validation.";
                     // $redirection = "Redirection automatique vers la page 'connexion...'";
                     // session_start();
@@ -118,7 +136,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <p>
                 <label for="pseudo">Pseudo :</label>
-                <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-Z '-]+$" maxlength="25"/>
+                <input type="text" name="pseudo" id="pseudo" minlength="3" maxlength="25"/>
                 <span class="messErrInscription"><?php if (isset($erreur_pseudo)) echo $erreur_pseudo ?></span>
                 <span class="messErrInscription"><?php if (isset($erreur_pseudo2)) echo $erreur_pseudo2 ?></span>
                 <span class="messErrInscription"><?php if (isset($erreur_doublon)) echo $erreur_doublon ?></span>
@@ -143,6 +161,8 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                 <span class="messErrInscription"><?php if (isset($erreur_email)) echo $erreur_email ?></span>
                 <span class="messErrInscription"><?php if (isset($erreur_email2)) echo $erreur_email2 ?></span>
             </p>
+
+
 
             <P>
                 <input type="hidden" name="adresse" id="input_adresse">
