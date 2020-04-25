@@ -22,25 +22,15 @@ $pseudo = ($_POST['pseudo']);
 $pseudo = secureDonneesForm($pseudo);
 
 $motDePasse = ($_POST['mdp']);
+$motDePasse = secureDonneesForm($motDePasse);
+
 $confMotDePasse = ($_POST['mdp2']);
+$confMotDePasse = secureDonneesForm($confMotDePasse);
 
 $email = ($_POST['email']);
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$email = secureDonneesForm(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
 
 $valide = true;
-
-/*
-if (!preg_match("^[A-Za-Z'-]+$", $pseudo)){
-    $valide = false;
-    $erreur_pseudo2 = "Certains caractères ne sont pas autorisés";
-}
-
-
-
-
-*/
-
-
 
 /* Test : le visiteur a-t-il soumis le formulaire ? */
 if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
@@ -50,9 +40,10 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
     if ((isset($pseudo) && !empty($pseudo)) && (isset($motDePasse) && !empty($motDePasse))
         && (isset($confMotDePasse) && !empty($confMotDePasse)) && (isset($email) && !empty($email))) {
 
-        if (strlen($pseudo) < 3){
+        /* Usage exclusif de lettres, de chiffres et _ */
+        if (!preg_match('`^\w{3,25}$`', $pseudo)) {
             $valide = false;
-            echo 'mdp trop court';
+            $erreur_pseudo2 = "Certains caractères ne sont pas autorisés ou votre pseudo n'a pas la bonne longueur (entre 3 et 8 caractères).";
         }
 
         /* on compare les deux mots de passe */
@@ -145,13 +136,13 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <p>
                 <label for="mdp">Mot de passe :</label>
-                <input type="password" name="mdp" id="mdp"/>
+                <input type="password" name="mdp" id="mdp" minlength="6" maxlength="12"/>
                 <span class="messErrInscription"><?php if (isset($erreur_mdp)) echo $erreur_mdp ?></span>
             </p>
 
             <p>
                 <label for="mdp2">Confirmation du mot de passe :</label>
-                <input type="password" name="mdp2" id="mdp2"/>
+                <input type="password" name="mdp2" id="mdp2" minlength="6" maxlength="12"/>
                 <span class="messErrInscription"><?php if (isset($erreur_mdp2)) echo $erreur_mdp2 ?></span>
             </p>
 
