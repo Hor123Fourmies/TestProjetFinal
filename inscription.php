@@ -8,11 +8,22 @@ $username = "root";
 $password = "";
 $dbname = "project";
 
-$pseudo = ($_POST['pseudo']);
-$motDePasse = $_POST['mdp'];
-$confMotDePasse = $_POST['mdp2'];
-$email = $_POST['email'];
-$erreurs = 'erreur';
+function verifDonneesForm($donnees_form){
+    // neutralisation des <>
+    $donnees_form = htmlspecialchars($donnees_form);
+    // Suppression des espaces inutiles
+    $donnees_form = trim($donnees_form);
+    // Suppression des \
+    $donnees_form = stripslashes($donnees_form);
+    return $donnees_form;
+}
+
+
+$pseudo = verifDonneesForm($_POST['pseudo']);
+$motDePasse = verifDonneesForm($_POST['mdp']);
+$confMotDePasse = verifDonneesForm($_POST['mdp2']);
+$email = ($_POST['email']);
+
 
 /* Test : le visiteur a-t-il soumis le formulaire ? */
 if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
@@ -28,6 +39,18 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
             $erreur_mdp2 = 'Les deux mots de passe sont différents.';
         }
 
+        if (strlen($pseudo>5)){
+            echo 'nom trop long';
+        }
+
+        if(!preg_match("^[A-Za-Z '-]+$", $pseudo)){
+            echo 'erreur de caractères';
+        }
+
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            echo 'mail non valide';
+        }
+
         else {
             $conn = new mysqli($servername, $username, $password);
             $conn->select_db($dbname);
@@ -41,12 +64,17 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             if ($doublon[0] == 0) {
                 $sql_inscription = "INSERT INTO user_validation VALUES(NULL,'$pseudo', '$motDePasse', '$email')";
-                $conn->query($sql_inscription);
-                    echo "ok";
-                    session_start();
-                    $_SESSION['pseudo'] = $pseudo;
-                    // header('onglet1.php');
-                    // exit();
+                if ($conn->query($sql_inscription) === true) {
+                    $insertion = "Merci $pseudo. Votre inscription a bien été prise en compte. Elle va être soumise à validation.";
+                    // $redirection = "Redirection automatique vers la page 'connexion...'";
+                    // session_start();
+                    // $_SESSION['pseudo'] = $pseudo;
+                    header("refresh:5", "connexion.php");
+                    //exit();
+                    }
+                else{
+                    echo "Erreur : " . $sql_inscription . "<br>" . $conn->error;
+                }
             } else {
                 $erreur_doublon = 'Un membre possède déjà ce pseudo.';
                 echo $erreur_doublon;
@@ -93,27 +121,28 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <p>
                 <label for="pseudo">Pseudo :</label>
-                <input type="text" name="pseudo" id="pseudo"/>
-                <span class="messErrInscription"><?php if(isset($erreur_pseudo)) echo $erreur_pseudo?></span>
+                <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-Z '-]+$" maxlength="20"/>
+                <span class="messErrInscription"><?php if (isset($erreur_pseudo)) echo $erreur_pseudo ?></span>
+                <span class="messErrInscription"><?php if (isset($erreur_doublon)) echo $erreur_doublon ?></span>
 
             </p>
 
             <p>
                 <label for="mdp">Mot de passe :</label>
                 <input type="password" name="mdp" id="mdp"/>
-                <span class="messErrInscription"><?php if(isset($erreur_mdp)) echo $erreur_mdp?></span>
+                <span class="messErrInscription"><?php if (isset($erreur_mdp)) echo $erreur_mdp ?></span>
             </p>
 
             <p>
                 <label for="mdp2">Confirmation du mot de passe :</label>
                 <input type="password" name="mdp2" id="mdp2"/>
-                <span class="messErrInscription"><?php if(isset($erreur_mdp2)) echo $erreur_mdp2?></span>
+                <span class="messErrInscription"><?php if (isset($erreur_mdp2)) echo $erreur_mdp2 ?></span>
             </p>
 
             <p>
                 <label for="email">Email :</label>
                 <input type="text" name="email" id="email"/>
-                <span class="messErrInscription"><?php if(isset($erreur_email)) echo $erreur_email?></span>
+                <span class="messErrInscription"><?php if (isset($erreur_email)) echo $erreur_email ?></span>
             </p>
 
             <P>
@@ -122,10 +151,13 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <input type="submit" name="inscription" value="Inscription"/>
 
-</fieldset>
+        </fieldset>
 
+        <div>
+            <p style="color:forestgreen"><?php echo $insertion ?></p>
+        </div>
 
-<?php
+        <?php
 if (isset($erreur)) echo '<br />',$erreur;
 ?>
 </body>
