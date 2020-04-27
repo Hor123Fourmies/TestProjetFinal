@@ -61,10 +61,9 @@ if(isset($_GET['action']) AND isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql_refus = "DELETE FROM user_validation WHERE id='$id'";
     $refus_ok = $conn->query($sql_refus);
-    echo "L'id "?><span style="color:red"><?php echo $id?></span><?php echo" a été supprimé de la table user_validation.";
     }
 }
-
+echo "L'id "?><span style="color:red"><?php echo $id?></span><?php echo" a été supprimé de la table user_validation.";
 
 
 

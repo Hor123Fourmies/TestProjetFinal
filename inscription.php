@@ -75,8 +75,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                     // $redirection = "Redirection automatique vers la page 'connexion...'";
                     // session_start();
                     // $_SESSION['pseudo'] = $pseudo;
-                    // header("refresh:5", "connexion.php");
-                    //exit();
+                    header("refresh:5;url=connexion.php");
                     }
                 else{
                     echo "Erreur : " . $sql_inscription . "<br>" . $conn->error;
