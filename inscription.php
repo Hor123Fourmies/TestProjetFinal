@@ -71,7 +71,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
             if ($doublon[0] == 0) {
                 $sql_inscription = "INSERT INTO user_validation VALUES(NULL, '$pseudo', '$motDePasse', '$email')";
                 if ($conn->query($sql_inscription) == TRUE) {
-                    $insertion = "Merci $pseudo. Votre inscription a bien été prise en compte. Elle va être soumise à validation.";
+                    $insertion = "Merci $pseudo. Votre inscription a bien été prise en compte. Celle-ci va être soumise à validation.";
                     // $redirection = "Redirection automatique vers la page 'connexion...'";
                     // session_start();
                     // $_SESSION['pseudo'] = $pseudo;

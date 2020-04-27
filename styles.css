@@ -1,19 +1,18 @@
 body{
-    background: antiquewhite;
+    background: seashell;
     font-family: Montserrat, sans-serif;
 }
 
 /* Barre nav */
 nav{
-    background: lightgrey;
+    background: #ABCCA9;
     border: 1px solid darkgrey;
     height: 80px;
     display: flex;
 }
 
 .nav_active{
-    color: green;
-    background: whitesmoke;
+    color: #FFEFED;
 }
 
 ul{
@@ -33,7 +32,8 @@ a{
 
 ul li a:hover{
     font-size: 17px;
-    color:darkslateblue;
+    color: #ABCCA9;
+    background: #FFEFED;
 }
 
 /* Sites */
@@ -53,7 +53,7 @@ h2{
 }
 
 .titre{
-    color:indianred;
+    color:#996F51;
     width: 300px;
 }
 
@@ -101,6 +101,10 @@ label{
     width: 300px;
 }
 
+#connexion_form_form label{
+    width: 200px;
+}
+
 input{
     display:inline-block;
     width: 400px;
@@ -136,7 +140,7 @@ h3{
     color:darkred;
 }
 
-.messErrInscription{
+.messErrInscription .messErrConnexion{
     color:darkred;
 }
 
