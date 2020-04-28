@@ -44,22 +44,11 @@ else {
 // Affichage HTML du bloc et du formulaire
 // note : Le formulaire n'est en rien attaché au bloc
 echo '
-<div style = "'.$display.'">
+<div style = "'.$display. '">
 
 <div style="float: right;">
     <form action="bdd.php" method="post" />
-        <input type="hidden" name="'.$hidden_name.'">
-        <button type="submit"> X </button>
-    </form>
-</div>
-
-<p>
-    <b>On peut afficher un élément masqué auparavant</b>
-</p>
-
-<p>
-    Un peut de texte s\'affiche maintenant.<br>
-    Il peut être masqué lors d\'un click<br>
+        <input type="hidden" name="' .$hidden_name. 'un click<br>
     sur le même bouton ci-dessous, pratique non ?
 </p>
 
@@ -68,7 +57,7 @@ echo '
 <p>
     <form action="bdd.php" method="post">
 
-        <input type="hidden" name="'.$hidden_name.'">
+        <input type="hidden" name="' .$hidden_name.'">
         <input type="submit" value="'.$value_button.'">
 
     </form>

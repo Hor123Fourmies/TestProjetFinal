@@ -8,6 +8,48 @@ $username = "root";
 $password = "";
 $dbname = "project";
 
+$conn = new mysqli($servername, $username, $password);
+$conn->select_db($dbname);
+
+function secureDonneesForm($donnees_form){
+    // neutralisation des <>
+    $donnees_form = htmlspecialchars($donnees_form);
+    // Suppression des espaces inutiles
+    $donnees_form = trim($donnees_form);
+    // Suppression des \
+    $donnees_form = stripslashes($donnees_form);
+    return $donnees_form;
+}
+
+$pseudo = ($_POST['pseudo']);
+$pseudo = secureDonneesForm($pseudo);
+
+$motDePasse = ($_POST['mdp']);
+$motDePasse = secureDonneesForm($motDePasse);
+$motDePasse = sha1($motDePasse);
+
+
+$sql_pseudo = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
+$row = mysqli_fetch_array($sql_pseudo);
+$compte_pseudo = $row['COUNT(*)'];
+
+// Si le pseudo existe
+if ($compte_pseudo != 0) {
+    $sql_connexion = "SELECT pseudo, mdp FROM user_connexion WHERE pseudo='$pseudo'";
+    $result = $conn->query($sql_connexion);
+    while ($row = $result->fetch_assoc()){
+        if($motDePasse == $row['mdp']){
+            echo 'La connexion a réussi. Veuillez patienter...';
+            session_start();
+            $_SESSION['pseudo'] = $pseudo;
+            header("refresh:2;url=comment_post.php");
+        }
+        else{
+            echo "Vous n'avez pas rentré les bons identifiants";
+        }
+    }
+
+}
 
 
 ?>

@@ -89,7 +89,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
     } else {
 
         if (empty($pseudo)){
-            $erreur_pseudo = "Veuillez indiquer votre pseudo";
+            $erreur_pseudo = "Veuillez indiquer votre pseudo.";
         }
 
         if (empty($motDePasse)){
