@@ -30,6 +30,8 @@
             <li> | </li>
             <li><a class="aNav" <?php if(PAGE == 'connexion'){ echo ' class="nav_active"'; } ?> href="connexion.php">Connexion</a></li>
             <li> | </li>
+            <li><a class="aNav" <?php if(PAGE == 'deconnexion'){ echo ' class="nav_active"'; } ?> href="deconnexion.php">Déconnexion</a></li>
+            <li> | </li>
             <li><a class="aNav" <?php if(PAGE == 'comment_post'){ echo ' class="nav_active"'; } ?> href="comment_post.php">Poster un commentaire</a></li>
         </ul>
 

@@ -28,30 +28,33 @@ $motDePasse = ($_POST['mdp']);
 $motDePasse = secureDonneesForm($motDePasse);
 $motDePasse = sha1($motDePasse);
 
-
-$sql_pseudo = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
-$row = mysqli_fetch_array($sql_pseudo);
-$compte_pseudo = $row['COUNT(*)'];
+if (isset($_POST['connexion'])) {
+    if (!empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
+        $sql_pseudo = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
+        $row = mysqli_fetch_array($sql_pseudo);
+        $compte_pseudo = $row['COUNT(*)'];
 
 // Si le pseudo existe
-if ($compte_pseudo != 0) {
-    $sql_connexion = "SELECT pseudo, mdp FROM user_connexion WHERE pseudo='$pseudo'";
-    $result = $conn->query($sql_connexion);
-    while ($row = $result->fetch_assoc()){
-        if($motDePasse == $row['mdp']){
-            echo 'La connexion a réussi. Veuillez patienter...';
-            session_start();
-            $_SESSION['pseudo'] = $pseudo;
-            header("refresh:2;url=comment_post.php");
-        }
-        else{
-            echo "Vous n'avez pas rentré les bons identifiants";
+        if ($compte_pseudo != 0) {
+            $sql_connexion = "SELECT pseudo, mdp FROM user_connexion WHERE pseudo='$pseudo'";
+            $result = $conn->query($sql_connexion);
+            while ($row = $result->fetch_assoc()) {
+                if ($motDePasse == $row['mdp']) {
+                    echo 'La connexion a réussi. Veuillez patienter...';
+                    session_start();
+                    $_SESSION['pseudo'] = $pseudo;
+                    header("refresh:2;url=comment_post.php");
+                } else {
+                    echo "Vous n'avez pas rentré les bons identifiants.";
+                }
+            }
+
         }
     }
-
+    else{
+        echo "Au moins un des champs est vide.";
+    }
 }
-
-
 ?>
 
 <!DOCTYPE html>
