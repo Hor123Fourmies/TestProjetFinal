@@ -15,7 +15,8 @@ function deconnexion(){
     session_unset();
     session_destroy();
     header("refresh:2;url=connexion.php");
-    echo "Déconnexion en cours...";
+    echo "Déconnexion en cours...
+    ";
 }
 
 deconnexion();

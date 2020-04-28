@@ -40,6 +40,11 @@ ul li nav{
     background: #FFEFED;
 }
 
+#logout{
+    height: 40px;
+    width: 40px;
+}
+
 /* Sites */
 #flexSite{
     display: flex;
@@ -107,6 +112,10 @@ label{
 
 #connexion_form label{
     width: 200px;
+}
+
+#comment_form{
+    width:250px;
 }
 
 input{

@@ -5,6 +5,32 @@ define('PAGE', 'comment_post');
 include "nav.php";
 include "verif_connexion.php";
 
+if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
+    $session_pseudo = $_SESSION['pseudo'];
+}
+
+$today = date("j.m.Y");
+
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "project";
+
+$conn = new mysqli($servername, $username, $password);
+$conn->select_db($dbname);
+
+
+
+$sql = "SELECT id, titre_site FROM site";
+$result = $conn->query($sql);
+echo $conn->error;
+
+while ($row = $result->fetch_assoc()) {
+    $id_site = $row['id'];
+    $titre = $row['titre_site'];
+}
 ?>
 
 
@@ -20,3 +46,44 @@ include "verif_connexion.php";
 
 <h3>Poster un commentaire</h3>
 
+<form id="comment_form" method="post" action="">
+    <fieldset>
+        <legend>Insérer votre commentaire</legend>
+
+        <p>
+            <label for="site">Site :</label>
+            <select name="site" id="site">
+                <option value="">Veuillez effectuer votre choix :</option>
+                <option value="1"<?php if ($id_site === '1') { echo "selected = 'selected'";}?>>Château de Trelon</option>
+                <option value="2"<?php if ($id_site === '2') { echo "selected = 'selected'";}?>>Château de Chimay</option>
+                <option value="3"<?php if ($id_site === '3') { echo "selected = 'selected'";}?>>Grange aux papillons</option>
+                <option value="4"<?php if ($id_site === '4') { echo "selected = 'selected'";}?>>Grottes de Neptune</option>
+            </select>
+
+
+
+        </p>
+
+        <p>
+            <label for="commentaire">Votre commentaire :</label>
+            <textarea name="commentaire" id="commentaire" rows="" cols=""></textarea>
+        </p>
+
+        <p>
+            <label for="pseudo">Votre pseudo :</label>
+            <input name="pseudo" id="pseudo" value="<?php echo $session_pseudo ?>">
+        </p>
+
+        <p>
+            <label for="date">Date :</label>
+            <input name="date" id="date" value="<?php echo $today ?>">
+        </p>
+
+        <p>
+            <input type="submit" name="PostComment" id="" value="Poster le commentaire">
+        </p>
+
+    </fieldset>
+</form>
+</body>
+</html>

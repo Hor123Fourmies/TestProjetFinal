@@ -60,7 +60,7 @@ $commune = $row['commune'];
 <div class ="divSite">
 
     <span><?php echo $row['id'] . "<br>" ?></span>
-    <div><a href="contact_form.php"><img src="Photos/<?php echo $row["photo"] ?>\"></a></div>
+    <div><a href="vosCommentaires.php"><img src="Photos/<?php echo $row["photo"] ?>\"></a></div>
     <a href="contact_form.php"><h4 class="titre"><?php echo utf8_encode($titre) ?></h4></a>
     <h5><?php echo utf8_encode($commune)?></h5>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
