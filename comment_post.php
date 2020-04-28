@@ -3,19 +3,10 @@
 define('PAGE', 'comment_post');
 
 include "nav.php";
-
-?>
-
-
-
-<?php
-
-
 include "verif_connexion.php";
 
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
