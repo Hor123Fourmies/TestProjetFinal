@@ -2,7 +2,6 @@
 define('PAGE', 'connexion');
 include "nav.php";
 
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -43,6 +42,7 @@ if (isset($_POST['connexion'])) {
                     echo 'La connexion a réussi. Veuillez patienter...';
                     session_start();
                     $_SESSION['pseudo'] = $pseudo;
+                    $_SESSION['mdp'] = $motDePasse;
                     header("refresh:2;url=comment_post.php");
                 } else {
                     echo "Vous n'avez pas rentré les bons identifiants.";
@@ -98,6 +98,12 @@ if (isset($_POST['connexion'])) {
             <input type="submit" name="connexion" value="Connexion"/>
 
         </fieldset>
+
+        <form  method="post" action="deconnexion.php">
+            <input type="submit" id="deconnexion" name="deconnexion" value="Se déconnecter" onclick="deconnexion()">
+        </form>
+
+       <p><a class="aaa" href="deconnexion.php">Se déconnecter</a>
 
     </body>
 </html>

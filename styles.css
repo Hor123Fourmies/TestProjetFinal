@@ -25,12 +25,16 @@ li{
     padding: 10px;
 }
 
-.aNav {
+a{
     text-decoration: none;
     color:black;
 }
 
-ul li a:hover{
+.aaa{
+    text-decoration: black underline;
+}
+
+ul li nav{
     font-size: 17px;
     color: #ABCCA9;
     background: #FFEFED;
@@ -143,5 +147,4 @@ h3{
 .messErrInscription .messErrConnexion{
     color:darkred;
 }
-
 
