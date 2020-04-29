@@ -1,5 +1,6 @@
-
 <?php
+
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -8,6 +9,7 @@ $dbname = "project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +22,8 @@ $conn->select_db($dbname);
 </head>
 <body>
 <?php
+
+echo $_SESSION['pseudo'];
 
 $sql_theme = "SELECT id, titre_theme FROM theme";
 $result_theme = $conn->query($sql_theme);

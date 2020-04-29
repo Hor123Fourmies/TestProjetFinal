@@ -5,12 +5,7 @@ define('PAGE', 'comment_post');
 include "nav.php";
 include "verif_connexion.php";
 
-if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
-    $session_pseudo = $_SESSION['pseudo'];
-}
-
 $today = date("Y-m-d");
-
 
 $servername = "localhost";
 $username = "root";
@@ -20,16 +15,15 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
+$idSiteGet = $_GET['id'];
 
-
-$sql = "SELECT id, titre_site FROM site";
+$sql = "SELECT id, titre_site FROM site WHERE id=$idSiteGet";
 $result = $conn->query($sql);
 echo $conn->error;
 
 while ($row = $result->fetch_assoc()) {
     $idSite = $row['id'];
-    $titre = $row['titre_site'];
-    echo $titre;
+    $titre_site = $row['titre_site'];
 }
 ?>
 
@@ -44,12 +38,14 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body>
 
+<?php echo $_SESSION['pseudo'];?>
+
 <h3>Poster un commentaire</h3>
 
-<form id="comment_form" method="post" action="comment_post.php">
+<form id="comment_form" method="post" action="comment_envoi.php">
     <fieldset>
         <legend>Insérer votre commentaire</legend>
-
+        <!--
         <p>
             <label for="site">Site :</label>
             <select name="site" id="site">
@@ -60,6 +56,17 @@ while ($row = $result->fetch_assoc()) {
                 <option value="4"<?php if ($idSite === '4') { echo "selected = 'selected'";}?>>Grottes de Neptune</option>
             </select>
         </p>
+ -->
+        <p>
+            <label for="idSite">Id :</label>
+            <input type="text" name="idSite" id="idSite" value="<?php echo $idSite?>">
+        </p>
+
+        <p>
+            <label for="site">Site :</label>
+            <input type="text" name="site" id="site" value="<?php echo $titre_site?>">
+        </p>
+
 
         <p>
             <label for="commentaire">Votre commentaire :</label>
@@ -68,7 +75,7 @@ while ($row = $result->fetch_assoc()) {
 
         <p>
             <label for="pseudo">Votre pseudo :</label>
-            <input type="hidden" name="pseudo" id="pseudo" value="<?php echo $session_pseudo ?>"><?php echo $session_pseudo ?>
+            <input type="hidden" name="pseudo" id="pseudo" value="<?php echo $_SESSION['pseudo'] ?>"><?php echo $_SESSION['pseudo'] ?>
         </p>
 
         <p>
@@ -84,19 +91,4 @@ while ($row = $result->fetch_assoc()) {
 </form>
 
 <?php
-/*
-$texte = $_POST['commentaire'];
 
-$sql_postComment = "INSERT INTO commentaires VALUES(NULL, '$idSite','$texte','$session_pseudo','$today')";
-if($conn->query($sql_postComment)){
-    $retour = "Merci $session_pseudo. Votre commentaire a bien été enregistré.";
-    echo $retour;
-}
-else{
-    echo "erreur";
-}
-*/
-?>
-
-</body>
-</html>

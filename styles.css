@@ -157,3 +157,14 @@ h3{
     color:darkred;
 }
 
+/* vosCommentaires */
+
+#presentation_detail{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#commentaires_detail{
+    text-align: center;
+}

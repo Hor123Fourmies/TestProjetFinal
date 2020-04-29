@@ -29,8 +29,6 @@
             <li><a <?php if(PAGE == 'inscription'){ echo ' class="nav_active"'; } ?> href="inscription.php">Inscription</a></li>
             <li> | </li>
             <li><a <?php if(PAGE == 'connexion'){ echo ' class="nav_active"'; } ?> href="connexion.php">Se connecter</a></li>
-            <li> | </li>
-            <li><a <?php if(PAGE == 'comment_post'){ echo ' class="nav_active"'; } ?> href="comment_post.php">Poster un commentaire</a></li>
         </ul>
 
     </nav>

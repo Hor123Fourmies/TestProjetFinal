@@ -39,16 +39,19 @@ if (isset($_POST['connexion'])) {
             $result = $conn->query($sql_connexion);
             while ($row = $result->fetch_assoc()) {
                 if ($motDePasse == $row['mdp']) {
-                    echo 'La connexion a réussi. Veuillez patienter...';
                     session_start();
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['mdp'] = $motDePasse;
-                    header("refresh:2;url=comment_post.php");
-                } else {
+                    echo "Bienvenue $pseudo";
+                    // header("refresh:2;url=comment_post.php");
+                }
+                else {
                     echo "Vous n'avez pas rentré les bons identifiants.";
                 }
             }
-
+        }
+        else{
+            echo "Les identifiants sont incorrects";
         }
     }
     else{
