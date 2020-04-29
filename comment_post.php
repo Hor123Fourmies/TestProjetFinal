@@ -9,8 +9,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     $session_pseudo = $_SESSION['pseudo'];
 }
 
-$today = date("j.m.Y");
-
+$today = date("Y-m-d");
 
 
 $servername = "localhost";
@@ -30,6 +29,7 @@ echo $conn->error;
 while ($row = $result->fetch_assoc()) {
     $idSite = $row['id'];
     $titre = $row['titre_site'];
+    echo $titre;
 }
 ?>
 
@@ -82,5 +82,21 @@ while ($row = $result->fetch_assoc()) {
 
     </fieldset>
 </form>
+
+<?php
+/*
+$texte = $_POST['commentaire'];
+
+$sql_postComment = "INSERT INTO commentaires VALUES(NULL, '$idSite','$texte','$session_pseudo','$today')";
+if($conn->query($sql_postComment)){
+    $retour = "Merci $session_pseudo. Votre commentaire a bien été enregistré.";
+    echo $retour;
+}
+else{
+    echo "erreur";
+}
+*/
+?>
+
 </body>
 </html>
