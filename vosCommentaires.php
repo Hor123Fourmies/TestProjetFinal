@@ -33,6 +33,10 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
 
 $idSiteGet = $_GET['id'];
 
+?>
+<button><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</button>
+
+<?php
 
 if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
     $result = $conn->query($sql);

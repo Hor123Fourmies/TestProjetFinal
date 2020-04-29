@@ -83,8 +83,8 @@ $siteInternet = $row['site_internet'];
     <div><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img src="Photos/<?php echo $photo ?>\"></a></div>
     <a href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>)</h4></a>
     <h5><?php echo utf8_encode($commune)?></h5>
+    <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
-    <a href="http://<?php echo $siteInternet?>"><?php echo $siteInternet?></a>
 
 </div>
 
