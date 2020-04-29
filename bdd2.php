@@ -25,6 +25,12 @@ $conn->select_db($dbname);
 
 echo $_SESSION['pseudo'];
 
+
+
+
+
+
+
 $sql_theme = "SELECT id, titre_theme FROM theme";
 $result_theme = $conn->query($sql_theme);
 echo $conn->error;
@@ -48,32 +54,48 @@ $titre_theme = $row["titre_theme"];
 <div id="flexSite">
 <?php
 
-$sql = "SELECT id, photo, titre_site, commune, texte FROM site WHERE id_theme = $idTh";
+$sql = "SELECT * FROM site WHERE id_theme = $idTh";
 $result = $conn->query($sql);
 echo $conn->error;
 
 
+
+
 while ($row = $result->fetch_assoc()) {
+
+
 $idSite = $row['id'];
+$photo = $row['photo'];
 $titre = $row['titre_site'];
 $texte = $row['texte'];
 $commune = $row['commune'];
+$siteInternet = $row['site_internet'];
+
+    $sql_compteComment = $conn->query("SELECT COUNT(*) FROM `commentaires` where id_site = '$idSite'");
+    $row = mysqli_fetch_assoc($sql_compteComment);
+    $total = $row['COUNT(*)'];
 
 ?>
 
 <div class ="divSite">
 
     <span><?php echo $row['id'] . "<br>" ?></span>
-    <div><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img src="Photos/<?php echo $row["photo"] ?>\"></a></div>
-    <a href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre) ?></h4></a>
+    <div><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img src="Photos/<?php echo $photo ?>\"></a></div>
+    <a href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>)</h4></a>
     <h5><?php echo utf8_encode($commune)?></h5>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
+    <a href="http://<?php echo $siteInternet?>"><?php echo $siteInternet?></a>
 
 </div>
 
 
 
 <?php
+
+
+
+
+
 }
 ?>
 </div>
