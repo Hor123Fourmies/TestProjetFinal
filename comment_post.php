@@ -1,10 +1,11 @@
 <?php
-
+session_start();
 define('PAGE', 'comment_post');
 
 include "nav.php";
-include "verif_connexion.php";
+// include "verif_connexion.php";
 
+$aujourdhui = date("d-m-Y");
 $today = date("Y-m-d");
 
 $servername = "localhost";
@@ -15,7 +16,16 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
+if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
+    $session_pseudo = $_SESSION['pseudo'];
+    echo "Bienvenue $session_pseudo.";
+
+    echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
+
 $idSiteGet = $_GET['id'];
+
+
+
 
 $sql = "SELECT id, titre_site FROM site WHERE id=$idSiteGet";
 $result = $conn->query($sql);
@@ -58,13 +68,15 @@ while ($row = $result->fetch_assoc()) {
         </p>
  -->
         <p>
+            <!--
             <label for="idSite">Id :</label>
-            <input type="text" name="idSite" id="idSite" value="<?php echo $idSite?>">
+           -->
+            <input type="hidden" name="idSite" id="idSite" value="<?php echo $idSite?>">
         </p>
 
         <p>
             <label for="site">Site :</label>
-            <input type="text" name="site" id="site" value="<?php echo $titre_site?>">
+            <input type="hidden" name="site" id="site" value="<?php echo utf8_encode($titre_site)?>"><?php echo utf8_encode($titre_site)?>
         </p>
 
 
@@ -80,7 +92,7 @@ while ($row = $result->fetch_assoc()) {
 
         <p>
             <label for="date">Date :</label>
-            <input type="hidden" name="date" id="date" value="<?php echo $today ?>"><?php echo $today ?>
+            <input type="hidden" name="date" id="date" value="<?php echo $today ?>"><?php echo $aujourdhui ?>
         </p>
 
         <p>
@@ -91,4 +103,8 @@ while ($row = $result->fetch_assoc()) {
 </form>
 
 <?php
-
+}
+else{
+    echo '<p>Vous n\'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.</p>';
+    echo '<p>Merci de vous rendre à la page <a class="aaa" href="connexion.php">Connexion</a>.</p>';
+}

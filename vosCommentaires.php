@@ -76,7 +76,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
     <div id="commentaires_detail">
     <?php
 
-$sql_comment = "SELECT * FROM commentaires WHERE id_site = $idSite ORDER BY id desc";
+$sql_comment = "SELECT id, texte_comment, pseudo_user, DATE_FORMAT(date, '%d-%m-%Y') as date FROM commentaires WHERE id_site = $idSite ORDER BY id desc";
 $result_comment = $conn->query($sql_comment);
 echo $conn->error;
 
@@ -90,7 +90,9 @@ while($row = $result_comment->fetch_assoc()) {
     $pseudo = $row['pseudo_user'];
     echo $pseudo;
     echo '<br>';
-
+    $date = $row['date'];
+    echo $date;
+    echo '<br>';
 }
 
 }
