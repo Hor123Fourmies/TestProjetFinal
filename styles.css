@@ -163,7 +163,9 @@ h3{
     display:flex;
     flex-direction: row;
     justify-content: center;
-    margin:5%;
+    margin-top:5%;
+    margin-left:5%;
+    margin-right:5%;
 }
 
 .pTitre{
@@ -176,7 +178,9 @@ h3{
     text-align: center;
 }
 #btnPostComment{
-    background-color: indianred;
+    background-color: palevioletred;
+    border: 1px black solid;
+    border-radius: 1em;
     height: 40px;
 }
 
