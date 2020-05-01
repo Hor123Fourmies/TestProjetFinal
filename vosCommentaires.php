@@ -154,8 +154,14 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
     <div id="divPagination">
         <?php
-        for ($page = 1; $page <= $nbPages; $page++){
-            echo '<a href="vosCommentaires.php?id='.$idSiteGet.'&page=' . $page . '">' . $page . '</a> ';
+        for ($i = 1; $i <= $nbPages; $i++){
+            if($i == $page){
+                echo '<b>'.$i.'</b> ';
+            }
+else{
+    echo '<a href="vosCommentaires.php?id='.$idSiteGet.'&page=' . $i . '">' . $i . '</a> ';
+}
+
         }
 
         ?>
