@@ -60,9 +60,9 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         </div>
 
         <div id="divTexteDetail">
-            <h3><?php echo utf8_encode($titreSite) ?> </h3>
-            <p><?php echo utf8_encode($texte) ?> </p>
-            <button id="btnPostComment"><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</button>
+            <p class="pTitre"><?php echo utf8_encode($titreSite) ?> </p>
+            <p style="margin-left: 5%"><?php echo utf8_encode($texte) ?> </p>
+
         </div>
 
     </div>
@@ -74,6 +74,9 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 // Les commentaires
 
     ?>
+<p id="pBtn"><button id="btnPostComment"><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</a></button></p>
+
+
     <h3>Commentaires</h3>
 
     <div id="commentaires_detail">
