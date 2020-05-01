@@ -43,7 +43,7 @@ if (isset($_POST['connexion'])) {
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['mdp'] = $motDePasse;
                     echo "Bienvenue $pseudo";
-                    // header("refresh:2;url=comment_post.php");
+                    header("refresh:2;url=indexAjax.php");
                 }
                 else {
                     echo "Vous n'avez pas rentré les bons identifiants.";

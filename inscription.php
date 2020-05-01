@@ -43,7 +43,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
         /* Usage exclusif de lettres, de chiffres et _ */
         if (!preg_match('`^\w{3,25}$`', $pseudo)) {
             $valide = false;
-            $erreur_pseudo2 = "Certains caractères ne sont pas autorisés ou votre pseudo n'a pas la bonne longueur (entre 3 et 8 caractères).";
+            $erreur_pseudo2 = "Certains caractères ne sont pas autorisés ou votre pseudo n'a pas la bonne longueur (entre 3 et 25 caractères).";
         }
 
         /* on compare les deux mots de passe */
