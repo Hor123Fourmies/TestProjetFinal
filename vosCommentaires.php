@@ -3,6 +3,21 @@ session_start();
 define('PAGE', 'vosCommentaires');
 include "nav.php";
 
+?>
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vos_commentaires</title>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+
+
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,30 +26,17 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
-?>
-
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Inscription</title>
-        <link rel="stylesheet" href="styles.css">
-        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    </head>
-    <body>
-
-
-<?php
 if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     $session_pseudo = $_SESSION['pseudo'];
     echo "Bienvenue $session_pseudo.";
+
+    echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
 }
 
 
 $idSiteGet = $_GET['id'];
 
 ?>
-<button><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</button>
 
 <?php
 
@@ -54,12 +56,13 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
     <div id="presentation_detail">
 
         <div id="divPhotoDetail">
-            <img src="Photos/<?php echo $photo ?>\">
+            <img alt="<?= $titreSite ?>" src="Photos/<?php echo $photo ?>\">
         </div>
 
         <div id="divTexteDetail">
             <h3><?php echo utf8_encode($titreSite) ?> </h3>
             <p><?php echo utf8_encode($texte) ?> </p>
+            <button id="btnPostComment"><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</button>
         </div>
 
     </div>

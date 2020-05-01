@@ -14,21 +14,22 @@ $conn->select_db($dbname);
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <?php
 
-echo $_SESSION['pseudo'];
+if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
+    $session_pseudo = $_SESSION['pseudo'];
+    echo "Bienvenue $session_pseudo.";
 
-
-
-
-
+    echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
+}
 
 
 $sql_theme = "SELECT id, titre_theme FROM theme";
@@ -43,8 +44,6 @@ $titre_theme = $row["titre_theme"];
 
 
 ?>
-
-
 
 <div class ="divTheme">
     <span><?php echo $idTh?></span>
@@ -80,7 +79,7 @@ $siteInternet = $row['site_internet'];
 <div class ="divSite">
 
     <span><?php echo $row['id'] . "<br>" ?></span>
-    <div><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img src="Photos/<?php echo $photo ?>\"></a></div>
+    <div><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo $titre ?>" src="Photos/<?php echo $photo ?>\"></a></div>
     <a href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>)</h4></a>
     <h5><?php echo utf8_encode($commune)?></h5>
     <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>

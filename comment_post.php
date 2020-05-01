@@ -25,8 +25,6 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
 $idSiteGet = $_GET['id'];
 
 
-
-
 $sql = "SELECT id, titre_site FROM site WHERE id=$idSiteGet";
 $result = $conn->query($sql);
 echo $conn->error;
