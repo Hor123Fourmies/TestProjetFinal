@@ -9,7 +9,7 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
-$sql_validation = "SELECT id, pseudo, email FROM user_validation ORDER BY id desc";
+$sql_validation = "SELECT id, pseudo, email, date FROM user_validation ORDER BY id desc";
 $liste = $conn->query($sql_validation);
 
 if ($liste == TRUE){
@@ -17,9 +17,11 @@ if ($liste == TRUE){
         $id = $row['id'];
         $pseudo = $row['pseudo'];
         $email = $row['email'];
+        $today = $row['date'];
         echo '- ' . $id. ' - '. '<br>';
         echo 'Pseudo : '. $pseudo. '<br>';
         echo ' E-mail : '. $email. '<br>';
+        echo 'Date :'.$today.'<br>';
 // Les liens « Accepter » et « Refuser » se placent ici.
 
         echo '<a href="validation_admin.php?action=accepter&id='.$id.'">Accepter</a>';
@@ -49,7 +51,7 @@ if(isset($_GET['action']) AND isset($_GET['id'])) {
             $mdp = $row['mdp'];
             $email = $row['email'];
 
-            $sql_validToConnect = "INSERT INTO user_connexion VALUES('$id', '$pseudo', '$mdp', '$email')";
+            $sql_validToConnect = "INSERT INTO user_connexion VALUES('$id', '$pseudo', '$mdp', '$email', '$today')";
             $transfert_ok = $conn->query($sql_validToConnect);
             echo 'transfert ok';
             $sql_supp_valid = "DELETE FROM user_validation WHERE id='$id'";

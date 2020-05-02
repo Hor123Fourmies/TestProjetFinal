@@ -1,5 +1,7 @@
 <?php
 
+include "nav.php";
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -40,6 +42,8 @@ else{
 }
 */
 
+// Requête préparée
+
 $stmt = $conn->prepare("INSERT INTO commentaires (id_site, texte_comment, pseudo_user, date) VALUES (?,?,?,?)");
 
 $stmt->bind_param("isss", $idSite, $texte_comment, $pseudo, $today);
@@ -60,3 +64,12 @@ print $conn->error;
 $stmt->close();
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+</head>
+<body>

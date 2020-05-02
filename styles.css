@@ -166,6 +166,8 @@ h3{
     color: #777;
     box-shadow: 0 0 0 16px #fff inset,
     0 0 0 17px #DAD4D4 inset;
+    width:450px;
+    height:225px
 }
 
 #presentation_detail{

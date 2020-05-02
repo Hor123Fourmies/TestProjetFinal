@@ -1,9 +1,23 @@
 <?php
 session_start();
-define('PAGE', 'comment_post');
+//define('PAGE', 'comment_post');
 
 include "nav.php";
 // include "verif_connexion.php";
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poster un commentaire</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<?php
+
 
 $aujourdhui = date("d-m-Y");
 $today = date("Y-m-d");
@@ -23,6 +37,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
 
 $idSiteGet = $_GET['id'];
+$phrase = "Vous n'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.";
 
 
 $sql = "SELECT id, titre_site FROM site WHERE id=$idSiteGet";
@@ -36,17 +51,7 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Poster un commentaire</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-</head>
-<body>
 
-<?php echo $_SESSION['pseudo'];?>
 
 <h3>Poster un commentaire</h3>
 
@@ -106,3 +111,6 @@ else{
     echo '<p>Vous n\'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.</p>';
     echo '<p>Merci de vous rendre à la page <a class="aaa" href="connexion.php">Connexion</a>.</p>';
 }
+
+?>
+</body>

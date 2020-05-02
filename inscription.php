@@ -30,6 +30,9 @@ $confMotDePasse = secureDonneesForm($confMotDePasse);
 $email = ($_POST['email']);
 $email = secureDonneesForm(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
 
+$today = date("Y-m-d");
+$aujourdhui = date("d-m-Y");
+
 $valide = true;
 
 /* Test : le visiteur a-t-il soumis le formulaire ? */
@@ -69,7 +72,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
             $doublon = $row['COUNT(*)'];
 
             if ($doublon[0] == 0) {
-                $sql_inscription = "INSERT INTO user_validation VALUES(NULL, '$pseudo', '$motDePasse', '$email')";
+                $sql_inscription = "INSERT INTO user_validation VALUES(NULL, '$pseudo', '$motDePasse', '$email', '$today')";
                 if ($conn->query($sql_inscription) == TRUE) {
                     $insertion = "Merci $pseudo. Votre inscription a bien été prise en compte. Celle-ci va être soumise à validation.";
                     // $redirection = "Redirection automatique vers la page 'connexion...'";
@@ -152,7 +155,11 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                 <span class="messErrInscription"><?php if (isset($erreur_email2)) echo $erreur_email2 ?></span>
             </p>
 
-
+            <p>
+                <label for="today">Date :</label>
+                <input type="hidden" name="today" id="today">
+                <span><?= $aujourdhui?></span>
+            </p>
 
             <P>
                 <input type="hidden" name="adresse" id="input_adresse">

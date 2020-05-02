@@ -27,6 +27,7 @@ $motDePasse = ($_POST['mdp']);
 $motDePasse = secureDonneesForm($motDePasse);
 $motDePasse = sha1($motDePasse);
 
+
 if (isset($_POST['connexion'])) {
     if (!empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
         $sql_pseudo = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
