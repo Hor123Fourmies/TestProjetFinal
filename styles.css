@@ -77,7 +77,7 @@ h2{
     width: 300px;
 }
 
-img{
+#photoDivSite img{
     box-shadow: 4px 4px 8px #888888;
 }
 
@@ -85,14 +85,16 @@ img{
 /* Formulaire contact + inscription */
 
 form{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 fieldset{
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 label{
@@ -157,6 +159,15 @@ h3{
 
 /* vosCommentaires */
 
+#divPhotoDetail img{
+    padding: 26px;
+    border: 1px solid #bbb;
+    background: #F4F4F4;
+    color: #777;
+    box-shadow: 0 0 0 16px #fff inset,
+    0 0 0 17px #DAD4D4 inset;
+}
+
 #presentation_detail{
     display:flex;
     flex-direction: row;
@@ -172,7 +183,7 @@ h3{
     color:indianred;
 }
 
-#pBtn{
+.pBtn{
     text-align: center;
 }
 #btnPostComment{

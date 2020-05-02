@@ -158,10 +158,12 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                 <input type="hidden" name="adresse" id="input_adresse">
             </p>
 
-            <input type="submit" name="inscription" value="Inscription"/>
+
 
         </fieldset>
 
+        <p class="pBtn"><input type="submit" name="inscription" value="Inscription"/></p>
+    </form>
         <div>
             <p style="color:forestgreen"><?php echo $insertion ?></p>
         </div>

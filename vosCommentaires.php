@@ -74,7 +74,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
     ?>
 
-<p id="pBtn"><button id="btnPostComment"><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</a></button></p>
+<p class="pBtn"><button id="btnPostComment"><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</a></button></p>
 
 
 <h3>Commentaires</h3>

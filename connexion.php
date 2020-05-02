@@ -98,9 +98,10 @@ if (isset($_POST['connexion'])) {
                 <input type="hidden" name="adresse" id="input_adresse">
             </p>
 
-            <input type="submit" name="connexion" value="Connexion"/>
+
 
         </fieldset>
+        <p class="pBtn"><input type="submit" name="connexion" value="Connexion"/></p>
     </form>
 
     <form  method="post" action="deconnexion.php">
