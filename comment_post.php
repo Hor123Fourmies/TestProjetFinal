@@ -30,8 +30,9 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
-if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
+if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp']) || isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
     $session_pseudo = $_SESSION['pseudo'];
+    $session_admin = $_SESSION['loginAdmin'];
 
 $idSiteGet = $_GET['id'];
 $phrase = "Vous n'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.";
@@ -54,7 +55,7 @@ while ($row = $result->fetch_assoc()) {
 
 <form id="comment_form" method="post" action="comment_envoi.php">
     <fieldset>
-        <legend>Insérer votre commentaire</legend>
+        <legend>Insérez votre commentaire</legend>
         <!--
         <p>
             <label for="site">Site :</label>
@@ -82,12 +83,12 @@ while ($row = $result->fetch_assoc()) {
 
         <p>
             <label for="commentaire">Votre commentaire :</label>
-            <textarea name="commentaire" id="commentaire" rows="" cols=""></textarea>
+            <textarea name="commentaire" id="commentaire" rows="15" cols="20"></textarea>
         </p>
 
         <p>
             <label for="pseudo">Votre pseudo :</label>
-            <input type="hidden" name="pseudo" id="pseudo" value="<?php echo $_SESSION['pseudo'] ?>"><?php echo $_SESSION['pseudo'] ?>
+            <input type="hidden" name="pseudo" id="pseudo" value="<?php echo $_SESSION['pseudo']?>"><?php echo $_SESSION['pseudo']?>
         </p>
 
         <p>

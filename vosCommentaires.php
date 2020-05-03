@@ -130,17 +130,31 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
 
     while ($row = mysqli_fetch_array($result_comment)){
+        $idComment  = $row['id'];
         $texteComment = $row['texte_comment'];
         $pseudo = $row['pseudo_user'];
         $date = $row['date'];
 
+// Boucle qui affiche les réponses liées aux commentaires
 
+        $sql_reponse = "SELECT * FROM reponse_comment WHERE id_comment = $idComment";
+           //$result_comment = $conn->query($sql_comment);
+        $result_reponse = mysqli_query($conn, $sql_reponse);
+        $conn->query($sql_reponse);
+        while ($row = mysqli_fetch_array($result_reponse)){
+            $idReponse = $row['idReponse'];
+            $texteReponse = $row['texte_reponse'];
+            ?>
+            <p style="color:violet"><?= $texteReponse?></p>
+            <?php
+        }
         ?>
         <p><?php echo utf8_encode($texteComment)?></p>
         <span><?= "Rédigé par ".$pseudo." le ".$date ?> </span>
-
         <?php
+
     }
+
 
     ?>
 
@@ -167,6 +181,7 @@ else{
     else{
     echo $conn->error;
     }
+
     ?>
 
 
