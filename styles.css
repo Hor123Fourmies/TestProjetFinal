@@ -50,6 +50,10 @@ nav ul li a:hover{
     background: limegreen;
 }
 
+.divConnSession p{
+    margin:0;
+}
+
 
 /* Sites */
 #flexSite{
@@ -219,3 +223,15 @@ h3{
 #divPagination a:hover{
     color:red;
 }
+
+/* page des commentaires individuels */
+
+#divCommentInd{
+    height:250px;
+    overflow: auto;
+}
+
+#divCommentInd textarea{
+    overflow: auto;
+}
+
