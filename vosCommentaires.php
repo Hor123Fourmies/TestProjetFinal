@@ -134,6 +134,11 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         $texteComment = $row['texte_comment'];
         $pseudo = $row['pseudo_user'];
         $date = $row['date'];
+        ?>
+        <p><?= "Rédigé par ".$pseudo." le ".$date ?> </p>
+        <p><?php echo utf8_encode($texteComment)?></p>
+
+        <?php
 
 // Boucle qui affiche les réponses liées aux commentaires
 
@@ -148,10 +153,6 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
             <p style="color:violet"><?= $texteReponse?></p>
             <?php
         }
-        ?>
-        <p><?php echo utf8_encode($texteComment)?></p>
-        <span><?= "Rédigé par ".$pseudo." le ".$date ?> </span>
-        <?php
 
     }
 
