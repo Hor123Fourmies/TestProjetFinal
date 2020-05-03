@@ -104,12 +104,13 @@ if (isset($_POST['connexion'])) {
         </fieldset>
         <p class="pBtn"><input type="submit" name="connexion" value="Connexion"/></p>
     </form>
-
+<!--
     <form  method="post" action="deconnexion.php">
         <input type="submit" id="deconnexion" name="deconnexion" value="Se déconnecter" onclick="deconnexion()">
     </form>
 
        <p><a class="aaa" href="deconnexion.php">Se déconnecter</a>
-
+-->
+    
     </body>
 </html>

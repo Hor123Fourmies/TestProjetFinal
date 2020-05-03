@@ -32,9 +32,6 @@ $conn->select_db($dbname);
 
 if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     $session_pseudo = $_SESSION['pseudo'];
-    echo "Bienvenue $session_pseudo.";
-
-    echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
 
 $idSiteGet = $_GET['id'];
 $phrase = "Vous n'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.";

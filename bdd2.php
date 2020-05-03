@@ -24,13 +24,6 @@ $conn->select_db($dbname);
 
 <?php
 
-if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
-    $session_pseudo = $_SESSION['pseudo'];
-    echo "Bienvenue $session_pseudo.";
-
-    echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
-}
-
 
 $sql_theme = "SELECT id, titre_theme FROM theme";
 $result_theme = $conn->query($sql_theme);
@@ -41,7 +34,6 @@ while ($row = $result_theme->fetch_assoc()) {
 
 $idTh = $row['id'];
 $titre_theme = $row["titre_theme"];
-
 
 ?>
 
@@ -58,8 +50,6 @@ $result = $conn->query($sql);
 echo $conn->error;
 
 
-
-
 while ($row = $result->fetch_assoc()) {
 
 
@@ -68,6 +58,7 @@ $photo = $row['photo'];
 $titre = $row['titre_site'];
 $texte = $row['texte'];
 $commune = $row['commune'];
+$pays = $row['pays'];
 $siteInternet = $row['site_internet'];
 
     $sql_compteComment = $conn->query("SELECT COUNT(*) FROM `commentaires` where id_site = '$idSite'");
@@ -82,6 +73,7 @@ $siteInternet = $row['site_internet'];
     <div id="photoDivSite"><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo $titre ?>" src="Photos/<?php echo $photo ?>\"></a></div>
     <a href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>)</h4></a>
     <h5><?php echo utf8_encode($commune)?></h5>
+    <p><?= $pays ?></p>
     <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 

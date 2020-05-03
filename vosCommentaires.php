@@ -26,14 +26,6 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
-if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
-    $session_pseudo = $_SESSION['pseudo'];
-    echo "Bienvenue $session_pseudo.";
-
-    echo '<p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>';
-}
-
-
 $idSiteGet = $_GET['id'];
 
 ?>
@@ -100,7 +92,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
             break;
     }
 
-    $limite = 4;
+    $limite = 6;
     $nbPages = ceil($cpte_comment/$limite);
 
     if (!isset($_GET['page'])){

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +19,8 @@
 </nav>
 -->
 
+
+
 <header>
 
     <nav>
@@ -30,6 +36,18 @@
             <li> | </li>
             <li><a <?php if(PAGE == 'connexion'){ echo ' class="nav_active"'; } ?> href="connexion.php">Se connecter</a></li>
         </ul>
+        <?php
+        if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
+            $session_pseudo = $_SESSION['pseudo'];
+            ?>
+            <div class="divConnSession">
+                <p><?= "Bienvenue $session_pseudo"?></p>
+                <p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>
+            </div>
+        <?php
+        }
+        ?>
+
 
     </nav>
 
