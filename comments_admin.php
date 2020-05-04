@@ -10,8 +10,7 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
-if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
-    $session_admin = $_SESSION['loginAdmin'];
+
 
 ?>
     <button><a href="pageAdmin.php?">Retour à la page précédente</a></button>
@@ -24,6 +23,7 @@ echo $conn->error;
 $today = date("Y-m-d");
 
 ?>
+
     <div id="comments_admin">
         <?php
 
@@ -53,29 +53,35 @@ echo '<br>';
     </div>
 
 <form id="form_reponse" method="post" action="comments_admin.php">
-                <!--
-                <label for="idComment">id :</label>
-                -->
 
-        <label for="idComment">Id du commentaire :</label>
-        <input id="idComment" name="idComment" value="">
-
-        <label for="reponse">Réponse</label>
-        <textarea id="reponse" name="reponse" cols="10" rows="10"></textarea>
-        <label for="login">Login :</label>
-        <input type="hidden" id="login" name="login" value="Admin">Admin
-        <label for="today">Date :</label>
-        <input type="hidden" id="today" name="today" value="<?=$today?>"><?=$today?>
+    <fieldset>
         <p>
-            <button type="submit">Répondre</button>
+            <label for="idComment">Id du commentaire :</label>
+            <input id="idComment" name="idComment" value="">
+        </p>
+        <p>
+            <label for="reponse">Réponse</label>
+            <textarea id="reponse" name="reponse" cols="10" rows="10"></textarea>
+        </p>
+        <p>
+            <label for="login">Login :</label>
+            <input type="hidden" id="login" name="login" value="Admin">Admin
+        </p>
+        <p>
+            <label for="today">Date :</label>
+            <input type="hidden" id="today" name="today" value="<?=$today?>"><?=$today?>
         </p>
 
+        <p id="pBtnReponse">
+            <button  type="submit">Répondre</button>
+        </p>
+    </fieldset>
 </form>
 
 <?php
 
 $idPost = $_POST['idComment'];
-$reponse = $_POST['reponse'];
+$reponse = utf8_decode($_POST['reponse']);
 $login = $_POST['login'];
 $date = $_POST['today'];
 
@@ -98,7 +104,4 @@ if(isset($idPost) && isset($reponse) && isset($login) && isset($date)) {
 //$stmt->execute();
 
 $stmt->close();
-}
-else{
-    echo "Vous devez être connecté en tant qu'administrateur pour accéder à cette page.";
-}
+

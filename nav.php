@@ -45,6 +45,7 @@ session_start();
             ?>
         <div class="divConnSession">
             <p><?= "Bienvenue $session_admin. Vous êtes connecté en tant qu'administrateur"?></p>
+            <p><a class="aaa" href="pageAdmin.php">Page Admin</a></p>
             <p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>
         </div>
         <?php

@@ -130,6 +130,10 @@ label{
     width:250px;
 }
 
+#form_reponse label{
+    width:200px;
+}
+
 input{
     display:inline-block;
     width: 400px;
@@ -248,5 +252,9 @@ h3{
 }
 
 #form_reponse{
+    margin-top: 20px;
+}
 
+#pBtnReponse{
+    text-align: center;
 }
