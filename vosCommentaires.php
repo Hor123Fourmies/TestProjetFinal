@@ -85,10 +85,10 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
             echo "Il n'y a aucun commentaire.";
             break;
         case $cpte_comment === 1:
-            echo "Il y a un commentaire";
+            echo "Il y a un commentaire.";
             break;
         case $cpte_comment > 1:
-            echo "Il y a ". $cpte_comment. " commentaires";
+            echo "Il y a ". $cpte_comment. " commentaires.";
             break;
     }
 

@@ -33,9 +33,25 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
 
     <?php
 
+// Compte le nb de commentaires selon chaque utilisateur
+    $sql_compteCommentInd = $conn->query("SELECT COUNT(*) FROM `commentaires` WHERE pseudo_user = '$session_pseudo'");
+    $row = mysqli_fetch_assoc($sql_compteCommentInd);
+    $total = $row['COUNT(*)'];
+
+    switch ($total){
+        case $total === 0:
+            echo "Vous n'avez posté aucun commentaire.";
+            break;
+        case $total === 1:
+            echo "Vous avez posté un commentaire.";
+            break;
+        case $total > 1:
+            echo "Vous avez posté ". $total. " commentaires.";
+            break;
+    }
+    
+
 // select de tous les commentaires selon le nom de la session
-
-
 
     $sql_commentInd = "SELECT * FROM commentaires WHERE pseudo_user = '$session_pseudo' ORDER BY id DESC";
     $result = $conn->query($sql_commentInd);

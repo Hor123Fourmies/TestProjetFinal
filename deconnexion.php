@@ -1,3 +1,16 @@
+<?php
+
+function deconnexion(){
+    session_start();
+    session_unset();
+    session_destroy();
+    header("refresh:2;url=connexion.php");
+    echo "Déconnexion en cours...";
+}
+deconnexion();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +21,3 @@
 </head>
 <body>
 
-<?php
-
-function deconnexion(){
-    session_start();
-    session_unset();
-    session_destroy();
-    header("refresh:2;url=connexion.php");
-    echo "Déconnexion en cours...
-    ";
-}
-
-deconnexion();
