@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "nav.php";
 
 $servername = "localhost";
@@ -9,6 +9,9 @@ $dbname = "project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
+
+if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
+    $session_admin = $_SESSION['loginAdmin'];
 
 ?>
     <button><a href="pageAdmin.php?">Retour à la page précédente</a></button>
@@ -95,3 +98,7 @@ if(isset($idPost) && isset($reponse) && isset($login) && isset($date)) {
 //$stmt->execute();
 
 $stmt->close();
+}
+else{
+    echo "Vous devez être connecté en tant qu'administrateur pour accéder à cette page.";
+}
