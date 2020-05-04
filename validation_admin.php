@@ -1,13 +1,18 @@
 <?php
 
+include "nav.php";
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
 
-
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
+
+?>
+<button><a href="pageAdmin.php?">Retour à la page précédente</a></button>
+<?php
 
 $sql_validation = "SELECT id, pseudo, email, date FROM user_validation ORDER BY id desc";
 $liste = $conn->query($sql_validation);
@@ -18,15 +23,16 @@ if ($liste == TRUE){
         $pseudo = $row['pseudo'];
         $email = $row['email'];
         $today = $row['date'];
+        echo '<br>';
         echo '- ' . $id. ' - '. '<br>';
         echo 'Pseudo : '. $pseudo. '<br>';
         echo ' E-mail : '. $email. '<br>';
         echo 'Date :'.$today.'<br>';
 // Les liens « Accepter » et « Refuser » se placent ici.
 
-        echo '<a href="validation_admin.php?action=accepter&id='.$id.'">Accepter</a>';
+        echo '<button><a href="validation_admin.php?action=accepter&id='.$id.'">Accepter</a></button>';
         echo ' | ';
-        echo '<a href="validation_admin.php?action=refuser&id='.$id.'">Refuser</a>';
+        echo '<button><a href="validation_admin.php?action=refuser&id='.$id.'">Refuser</a></button>';
 
         echo '<br/>';
     }

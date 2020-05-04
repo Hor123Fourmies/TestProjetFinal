@@ -10,6 +10,10 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
+?>
+    <button><a href="pageAdmin.php?">Retour à la page précédente</a></button>
+<?php
+
 $sql_comments = "SELECT * FROM commentaires ORDER BY id DESC";
 $result = $conn->query($sql_comments);
 echo $conn->error;
