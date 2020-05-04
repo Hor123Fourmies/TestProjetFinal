@@ -234,4 +234,8 @@ h3{
 #divCommentInd textarea{
     overflow: auto;
 }
+#detailCommentInd{
+    border: 1px solid darkslateblue;
+    margin-bottom: 10px;
+}
 

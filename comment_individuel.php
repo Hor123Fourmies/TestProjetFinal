@@ -49,7 +49,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
             echo "Vous avez posté ". $total. " commentaires.";
             break;
     }
-    
+
 
 // select de tous les commentaires selon le nom de la session
 
@@ -59,9 +59,18 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
 
     while ($row = $result->fetch_assoc()) {
         $id = $row['id'];
+        $idSite = $row['id_site'];
         $pseudo = $row['pseudo_user'];
         $texteComment = utf8_encode($row['texte_comment']);
         $date = $row['date'];
+
+        $sql_titre = "SELECT id, titre_site FROM site WHERE id = $idSite";
+        $result_titre = $conn->query($sql_titre);
+        echo $conn->error;
+        while ($row = $result_titre->fetch_assoc()){
+            $titreSite = $row['titre_site'];
+        }
+
 
         ?>
 
@@ -69,13 +78,16 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
                 <!--
                 <label for="idComment">id :</label>
                 -->
-                <input type="hidden" id="idComment" name="idComment" value="<?= $id ?>">
-                <label for="comment"></label>
-                <textarea id="comment" name="comment" cols="10" rows="10"><?= $texteComment ?></textarea>
-                <p><?= $date ?></p>
-                <p>
-                    <button type="submit">Modifier</button>
-                </p>
+                <div id="detailCommentInd">
+                    <input type="hidden" id="idComment" name="idComment" value="<?= $id ?>">
+                    <p><?= utf8_encode($titreSite) ?></p>
+                    <label for="comment"></label>
+                    <textarea id="comment" name="comment" cols="10" rows="10"><?= $texteComment ?></textarea>
+                    <p><?= $date ?></p>
+                    <p>
+                        <button type="submit">Modifier</button>
+                    </p>
+                </div>
             </form>
 
         <?php
