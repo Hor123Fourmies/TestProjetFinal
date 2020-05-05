@@ -14,7 +14,7 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
     $session_admin = $_SESSION['loginAdmin'];
 
     ?>
-    <button><a href="pageAdmin.php?">Retour à la page précédente</a></button>
+    <button class="btnAdmin"><a href="pageAdmin.php?">Retour à la page précédente</a></button>
     <?php
 
     $sql_validation = "SELECT id, pseudo, email, date FROM user_validation ORDER BY id desc";

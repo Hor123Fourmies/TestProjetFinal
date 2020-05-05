@@ -36,8 +36,8 @@ session_start();
             ?>
             <div class="divConnSession">
                 <p><?= "Bienvenue $session_pseudo"?></p>
-                <p><a class="aaa" href="comment_individuel.php">Mes commentaires</a></p>
-                <p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>
+                <p><a href="comment_individuel.php">Mes commentaires</a></p>
+                <p><a href="deconnexion.php">Se déconnecter</a></p>
             </div>
         <?php
         }
@@ -46,7 +46,8 @@ session_start();
             $session_admin = $_SESSION['loginAdmin'];
             ?>
         <div class="divConnSession">
-            <p><?= "Bienvenue $session_admin. Vous êtes connecté en tant qu'administrateur"?></p>
+            <p><?= "Bienvenue $session_admin." ?><p>
+            <p><?= "Vous êtes connecté en tant qu'administrateur."?></p>
             <p><a class="aaa" href="pageAdmin.php">Page Admin</a></p>
             <p><a class="aaa" href="deconnexion.php">Se déconnecter</a></p>
         </div>

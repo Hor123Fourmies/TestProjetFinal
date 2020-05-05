@@ -13,7 +13,7 @@ $conn->select_db($dbname);
 
 
 ?>
-    <button><a href="pageAdmin.php?">Retour à la page précédente</a></button>
+    <button class="btnAdmin"><a href="pageAdmin.php?">Retour à la page précédente</a></button>
 <?php
 
 $sql_comments = "SELECT * FROM commentaires ORDER BY id DESC";
@@ -73,7 +73,7 @@ echo '<br>';
         </p>
 
         <p id="pBtnReponse">
-            <button  type="submit">Répondre</button>
+            <button type="submit">Répondre</button>
         </p>
     </fieldset>
 </form>

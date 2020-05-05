@@ -38,7 +38,9 @@ $titre_theme = $row["titre_theme"];
 ?>
 
 <div class ="divTheme">
-    <span><?php echo $idTh?></span>
+    <!--
+    <span><?php // echo $idTh?></span>
+    -->
     <h2><?php echo $titre_theme?></h2>
 </div>
 
@@ -69,11 +71,12 @@ $siteInternet = $row['site_internet'];
 
 <div class ="divSite">
 
-    <span><?php echo $row['id'] . "<br>" ?></span>
-    <div id="photoDivSite"><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo $titre ?>" src="Photos/<?php echo $photo ?>\"></a></div>
-    <a href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>)</h4></a>
-    <h5><?php echo utf8_encode($commune)?></h5>
-    <p><?= $pays ?></p>
+    <!--
+    <span><?php //echo $row['id'] . "<br>" ?></span>
+    -->
+    <div id="photoDivSite"><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo $titre ?>" src="Photos/<?php echo utf8_encode($photo) ?>\"></a></div>
+    <a class="aTitre "href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>) - <?php echo utf8_encode($commune) ?></h4></a>
+    <h5><?= $pays ?></h5>
     <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 

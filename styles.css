@@ -1,18 +1,18 @@
 body{
-    background: seashell;
     font-family: Montserrat, sans-serif;
 }
 
 /* Barre nav */
 nav{
-    background: #ABCCA9;
+    background: #027373;
     border: 1px solid darkgrey;
     height: 80px;
     display: flex;
 }
 
 .nav_active{
-    color: #FFEFED;
+    color: goldenrod;
+
 }
 
 ul{
@@ -25,16 +25,17 @@ li{
     padding: 10px;
 }
 
-a{
+nav ul li a{
     text-decoration: none;
-    color:black;
+    color:white;
 }
 
 nav ul li a:hover{
-    color:yellow;
+    color:palegoldenrod;
 }
 .aaa{
-    text-decoration: black underline;
+    text-decoration: underline;
+    color: #027373;
 }
 
 
@@ -47,7 +48,9 @@ nav ul li a:hover{
     float: right;
     border: 2px solid darkgreen;
     padding: 5px;
-    background: limegreen;
+    background: white;
+    color: #027373;
+    font-size: 14px;
 }
 
 .divConnSession p{
@@ -61,6 +64,7 @@ nav ul li a:hover{
     flex-direction: row;
     justify-content: start;
     flex-wrap: wrap;
+    padding-left: 5%;
 }
 
 .divSite{
@@ -68,12 +72,17 @@ nav ul li a:hover{
 }
 
 h2{
-    color:seagreen;
+    color:#027373;
+    padding-left: 5%;
 }
 
 .titre{
-    color:#996F51;
+    color:#7F8C1C;
     width: 300px;
+}
+
+.aTitre{
+    text-decoration: none;
 }
 
 @keyframes opacite {
@@ -82,7 +91,7 @@ h2{
 }
 
 .texte{
-    color:darkolivegreen;
+    color: darkgrey;
     padding-right:10px;
     animation-name: opacite;
     animation-duration: 4s;
@@ -91,6 +100,8 @@ h2{
 
 #photoDivSite img{
     box-shadow: 4px 4px 8px #888888;
+    width: 276px;
+    height: 183px;
 }
 
 
@@ -107,6 +118,10 @@ fieldset{
     margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+h3{
+    color: #027373;
 }
 
 label{
@@ -149,15 +164,16 @@ textarea{
 
 input[type=submit]{
     color:#fff;
-    background-color:darkgrey;
+    background-color:#027373;
     width: 200px;
     margin-top: 15px;
     padding: 10px;
+    opacity: 0.75;
 }
 
 input[type=submit]:hover {
-    background-color: white;
-    color:darkgrey;
+    background-color: palegoldenrod;
+    color:#027373;
     cursor: pointer;
 }
 
@@ -182,8 +198,9 @@ h3{
     color: #777;
     box-shadow: 0 0 0 16px #fff inset,
     0 0 0 17px #DAD4D4 inset;
-    width:450px;
-    height:225px
+    width: 276px;
+    height: 183px;
+
 }
 
 #presentation_detail{
@@ -258,6 +275,37 @@ h3{
 #pBtnReponse{
     text-align: center;
 }
+
+#pBtnReponse button{
+    background: #027373;
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    opacity: 0.5;
+}
+
+#pBtnReponse button:hover {
+    text-decoration: none;
+    color: palegoldenrod;
+}
+
+.btnAdmin{
+    background: #027373;
+    cursor: pointer;
+    height: 40px;
+    opacity: 0.5;
+}
+
+.btnAdmin a{
+    text-decoration: none;
+    color: white;
+}
+
+.btnAdmin a:hover{
+    text-decoration: none;
+    color: palegoldenrod;
+}
+
 
 /* Carte */
 

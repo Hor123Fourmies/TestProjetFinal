@@ -134,7 +134,7 @@ if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
 
     </fieldset>
 
-    <div style="text-align:center;"><input type="submit" name="envoiMessage" id="btnEnvoyerFormContact" value="Envoyer votre message"/></div>
+    <div style="text-align:center;"><input type="submit" name="envoiMessage" id="btnEnvoyerFormContact" value="Envoyez votre message"/></div>
 
 </form>
 </body>
