@@ -29,6 +29,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
 <body>
 
 <h3>Commentaires de <?= $session_pseudo?></h3>
+
     <div id="divCommentInd">
 
     <?php
@@ -38,6 +39,11 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     $row = mysqli_fetch_assoc($sql_compteCommentInd);
     $total = $row['COUNT(*)'];
 
+    ?>
+
+    <div id="divNbCommentInd">
+
+        <?php
     switch ($total){
         case $total === 0:
             echo "Vous n'avez posté aucun commentaire.";
@@ -49,11 +55,13 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
             echo "Vous avez posté ". $total. " commentaires.";
             break;
     }
+?>
+    </div>
 
-
+    <?php
 // select de tous les commentaires selon le nom de la session
 
-    $sql_commentInd = "SELECT * FROM commentaires WHERE pseudo_user = '$session_pseudo' ORDER BY id DESC";
+    $sql_commentInd = "SELECT * FROM commentaires WHERE pseudo_user = '$session_pseudo' ORDER BY date DESC";
     $result = $conn->query($sql_commentInd);
     echo $conn->error;
 
@@ -62,7 +70,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
         $idSite = $row['id_site'];
         $pseudo = $row['pseudo_user'];
         $texteComment = utf8_encode($row['texte_comment']);
-        $date = $row['date'];
+        $date = date('d-m-Y', strtotime($row['date']));
 
         $sql_titre = "SELECT id, titre_site FROM site WHERE id = $idSite";
         $result_titre = $conn->query($sql_titre);
@@ -80,14 +88,14 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
                 -->
                 <div id="detailCommentInd">
                     <input type="hidden" id="idComment" name="idComment" value="<?= $id ?>">
-                    <p><?= utf8_encode($titreSite) ?></p>
+                    <p><?= utf8_encode($titreSite)?> - <?= $date ?></p>
                     <label for="comment"></label>
-                    <textarea id="comment" name="comment" cols="10" rows="10"><?= $texteComment ?></textarea>
-                    <p><?= $date ?></p>
+                    <textarea id="comment" name="comment" cols="10" rows="10"><?= utf8_encode($texteComment) ?></textarea>
                     <p>
                         <button type="submit">Modifier</button>
                     </p>
                 </div>
+
             </form>
 
         <?php
@@ -95,25 +103,29 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     }
 
 }
+else{
+    echo '<p>Vous n\'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.</p>';
+    echo '<p>Merci de vous rendre à la page <a class="aaa" href="connexion.php">Connexion</a>.</p>';
+}
 ?>
 
 </div>
 
 
+
     <?php
+
 $idPost = $_POST['idComment'];
 $texteComment2 = $_POST['comment'];
+$today = date("Y-m-d");
 
 if(isset($texteComment2)){
-    $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment2' WHERE id = $idPost";
+    $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment2', date = '$today' WHERE id = $idPost";
     $conn->query($sql_modifComment);
-    echo $conn->error;
 
     if ($conn->query($sql_modifComment)) {
-        echo "Commentaire mis à jour";
-        header("url=comment_individuel.php");
-        echo $texteComment2;
-        echo $idPost;
+        echo "Merci, $session_pseudo. Votre commentaire a bien été modifié.";
+        header("refresh:2;url=comment_individuel.php");
     } else {
         print $conn->error;
     }

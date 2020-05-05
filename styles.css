@@ -247,8 +247,14 @@ h3{
 
 /* page des commentaires individuels */
 
+
+#divNbCommentInd{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 #divCommentInd{
-    height:250px;
+    height:450px;
     overflow: auto;
 }
 
@@ -258,6 +264,22 @@ h3{
 #detailCommentInd{
     border: 1px solid darkslateblue;
     margin-bottom: 10px;
+}
+
+#detailCommentInd button{
+    border: 1px solid darkslateblue;
+    margin-bottom: 10px;
+}
+
+#detailCommentInd button{
+    background: #027373;
+    color: white;
+}
+
+#detailCommentInd button:hover{
+    background-color: palegoldenrod;
+    color:#027373;
+    cursor: pointer;
 }
 
 /* page administrateur */
