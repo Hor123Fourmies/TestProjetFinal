@@ -258,3 +258,11 @@ h3{
 #pBtnReponse{
     text-align: center;
 }
+
+/* Carte */
+
+#divCarte{
+    text-align: center;
+    margin-top: 20px;
+}
+

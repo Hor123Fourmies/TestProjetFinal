@@ -20,6 +20,8 @@ session_start();
             <li> | </li>
             <li><a <?php if(PAGE == 'indexAjax'){ echo ' class="nav_active"'; } ?> href="indexAjax.php">Sites</a></li>
             <li> | </li>
+            <li><a <?php if(PAGE == 'carte'){ echo ' class="nav_active"'; } ?> href="carte.php">Carte</a></li>
+            <li> | </li>
             <li><a <?php if(PAGE == 'contact'){ echo ' class="nav_active"'; } ?> href="contact_form.php">Contact</a></li>
             <li> | </li>
             <li><a <?php if(PAGE == 'connexion'){ echo ' class="nav_active"'; } ?> href="connexion.php">Connexion</a></li>
