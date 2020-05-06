@@ -75,8 +75,14 @@ $siteInternet = $row['site_internet'];
     <span><?php //echo $row['id'] . "<br>" ?></span>
     -->
     <div id="photoDivSite"><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo $titre ?>" src="Photos/<?php echo utf8_encode($photo) ?>\"></a></div>
-    <a class="aTitre "href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre)?> (<?php echo $total ?>) - <?php echo utf8_encode($commune) ?></h4></a>
-    <h5><?= $pays ?></h5>
+    <div id="divLieu">
+        <h5 class="lieu"><?php echo utf8_encode($commune) ?></h5>
+        <h5 class="lieu"><?= $pays ?></h5>
+    </div>
+        <a class="aTitre "href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre) ?> (<?php echo $total ?>)</h4></a>
+
+
+
     <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
     <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 

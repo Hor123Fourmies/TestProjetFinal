@@ -71,19 +71,39 @@ nav ul li a:hover{
     padding-left: 20px;
 }
 
+#photoDivSite img{
+    box-shadow: 4px 4px 8px #888888;
+    width: 276px;
+    height: 183px;
+}
+
 h2{
     color:#027373;
     padding-left: 5%;
 }
 
-.titre{
-    color:#7F8C1C;
-    width: 300px;
+#divLieu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 276px;
+}
+
+.lieu{
+    margin-top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.titre {
+    color: #7F8C1C;
 }
 
 .aTitre{
     text-decoration: none;
 }
+
+
 
 @keyframes opacite {
     from {opacity: 0;}
@@ -95,14 +115,12 @@ h2{
     padding-right:10px;
     animation-name: opacite;
     animation-duration: 4s;
-    width: 300px;
+    width: 276px;
 }
 
-#photoDivSite img{
-    box-shadow: 4px 4px 8px #888888;
-    width: 276px;
-    height: 183px;
-}
+
+
+
 
 
 /* Formulaire contact + inscription */
