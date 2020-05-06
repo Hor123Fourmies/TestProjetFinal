@@ -16,6 +16,7 @@ include "nav.php";
 </head>
 <body>
 
+
 <?php
 
 
@@ -35,6 +36,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp']) || isset($_SESSION['lo
     $session_admin = $_SESSION['loginAdmin'];
 
 $idSiteGet = $_GET['id'];
+
 $phrase = "Vous n'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.";
 
 
@@ -48,6 +50,8 @@ while ($row = $result->fetch_assoc()) {
 }
 ?>
 
+
+<button class="btnAdmin"><a href=<?php echo "vosCommentaires.php?id=$idSiteGet"?>>Retour à la page précédente</a></button>
 
 
 

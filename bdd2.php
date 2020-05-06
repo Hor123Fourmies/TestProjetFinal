@@ -61,6 +61,7 @@ $titre = $row['titre_site'];
 $texte = $row['texte'];
 $commune = $row['commune'];
 $pays = $row['pays'];
+$accroche = $row['accroche'];
 $siteInternet = $row['site_internet'];
 
     $sql_compteComment = $conn->query("SELECT COUNT(*) FROM `commentaires` where id_site = '$idSite'");
@@ -79,12 +80,12 @@ $siteInternet = $row['site_internet'];
         <h5 class="lieu"><?php echo utf8_encode($commune) ?></h5>
         <h5 class="lieu"><?= $pays ?></h5>
     </div>
+    <div id="divDetailSites">
         <a class="aTitre "href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre) ?> (<?php echo $total ?>)</h4></a>
+        <p><?= utf8_encode($accroche)?></p>
+        <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
+    </div>
 
-
-
-    <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
-    <p class="texte"><?php echo utf8_encode($texte) . "<br><br>" ?></p>
 
 </div>
 

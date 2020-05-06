@@ -31,6 +31,7 @@ while ($row = $result->fetch_assoc()) {
     $idCommentaire = $row['id'];
     $idSite = $row['id_site'];
     $commentaire = $row['texte_comment'];
+    $pseudo = $row['pseudo_user'];
 
 
     $sql_titre = "SELECT id, titre_site FROM site WHERE id = $idSite";
@@ -40,9 +41,10 @@ while ($row = $result->fetch_assoc()) {
         $titreSite = $row['titre_site'];
 
         ?>
-            <span> <?= $idCommentaire?></span>
-            <span> <?= utf8_encode($titreSite)?></span>
-            <span><?= $commentaire ?></span>
+        <span> <?= $idCommentaire?></span>
+        <span> <?= utf8_encode($titreSite)?></span>
+        <span><?= $commentaire ?></span>
+        <span><?=$pseudo?></span>
 
         <?php
 echo '<br>';

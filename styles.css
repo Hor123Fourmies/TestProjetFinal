@@ -91,12 +91,17 @@ h2{
 
 .lieu{
     margin-top: 0;
+    margin-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
 .titre {
     color: #7F8C1C;
+}
+
+.titre h4{
+    margin-top: 5px;
 }
 
 .aTitre{
@@ -118,7 +123,18 @@ h2{
     width: 276px;
 }
 
+#divDetailSites{
+    width: 276px;
+}
 
+#divDetailSites p{
+    width: 276px;
+    font-size: 14px;
+}
+
+#divDetailSites a{
+    font-size: 14px;
+}
 
 
 
@@ -212,10 +228,9 @@ h3{
 #divPhotoDetail img{
     padding: 26px;
     border: 1px solid #bbb;
-    background: #F4F4F4;
+background: #F4F4F4;
     color: #777;
-    box-shadow: 0 0 0 16px #fff inset,
-    0 0 0 17px #DAD4D4 inset;
+    box-shadow: 0 0 0 6px #027373 inset, 0 0 0 12px #7F8C1C inset;
     width: 276px;
     height: 183px;
 
@@ -233,21 +248,11 @@ h3{
 .pTitre{
     font-weight: bold;
     margin-left: 5%;
-    color:indianred;
+    color:#7F8C1C;
 }
 
 .pBtn{
     text-align: center;
-}
-#btnPostComment{
-    background-color: palevioletred;
-    border: 1px black solid;
-    border-radius: 1em;
-    height: 40px;
-}
-
-#btnPostComment a{
-    color:white;
 }
 
 #commentaires_detail{

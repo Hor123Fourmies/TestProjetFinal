@@ -30,6 +30,8 @@ $idSiteGet = $_GET['id'];
 
 ?>
 
+<button class="btnAdmin"><a href="indexAjax.php">Retour aux sites</a></button>
+
 <?php
 
 if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
@@ -66,7 +68,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
     ?>
 
-<p class="pBtn"><button id="btnPostComment"><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</a></button></p>
+<p class="pBtn"><button class="btnAdmin""><a href=<?php echo "comment_post.php?id=$idSiteGet"?>>Poster un commentaire</a></button></p>
 
 
 <h3>Commentaires</h3>
@@ -150,7 +152,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
             $idReponse = $row['idReponse'];
             $texteReponse = $row['texte_reponse'];
             ?>
-            <p style="color:violet"><?= $texteReponse?></p>
+            <p style="color:#027373"><?= utf8_encode($texteReponse)?></p>
             <?php
         }
 
