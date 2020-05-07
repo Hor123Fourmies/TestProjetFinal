@@ -1,5 +1,7 @@
 <?php
 
+include "nav.php";
+
 function deconnexion(){
     session_start();
     session_unset();
@@ -21,3 +23,6 @@ deconnexion();
 </head>
 <body>
 
+<?php
+include "footer.php";
+?>

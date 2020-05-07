@@ -107,3 +107,4 @@ if(isset($idPost) && isset($reponse) && isset($login) && isset($date)) {
 
 $stmt->close();
 
+include "footer.php";

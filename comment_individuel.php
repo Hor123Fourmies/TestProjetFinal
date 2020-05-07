@@ -124,17 +124,24 @@ if(isset($texteComment2)){
     $conn->query($sql_modifComment);
 
     if ($conn->query($sql_modifComment)) {
-        echo "Merci, $session_pseudo. Votre commentaire a bien été modifié.";
+        ?>
+        <div id="divCommUpdate">
+            <p>Merci, <?= $session_pseudo?>.</p>
+            <p>Votre commentaire a bien été modifié.</p>
+        </div>
+        <?php
         header("refresh:2;url=comment_individuel.php");
-    } else {
+    }
+    else {
         print $conn->error;
     }
 
 }
 
 
-?>
 
+include "footer.php";
+?>
 
 
 </body>

@@ -103,5 +103,9 @@ if (isset($_POST['connexionAdmin'])) {
        <p><a class="aaa" href="deconnexion.php">Se déconnecter</a>
 -->
 
+<?php
+include "footer.php";
+?>
+
 </body>
 </html>

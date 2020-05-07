@@ -81,4 +81,3 @@ $stmt->close();
 include "footer.php";
 ?>
 
-</body>

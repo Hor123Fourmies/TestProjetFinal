@@ -31,7 +31,7 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color:palegoldenrod;
+    color: #A2CDF2;
 }
 .aaa{
     text-decoration: underline;
@@ -209,8 +209,8 @@ input[type=submit]{
 }
 
 input[type=submit]:hover {
-    background-color: palegoldenrod;
-    color:#027373;
+    background-color: #A2CDF2;
+    color:#0367A6;
     cursor: pointer;
 }
 
@@ -222,9 +222,14 @@ h3{
     color:darkred;
 }
 
-.messErrInscription .messErrConnexion{
+.messErrInscription{
     color:darkred;
 }
+
+.messErrConnexion{
+    color:darkred;
+}
+
 
 /* vosCommentaires */
 
@@ -318,12 +323,12 @@ background: #F4F4F4;
     overflow: auto;
 }
 #detailCommentInd{
-    border: 1px solid darkslateblue;
+    border: 1px solid #0367A6;
     margin-bottom: 10px;
 }
 
 #detailCommentInd button{
-    border: 1px solid darkslateblue;
+    border: 1px solid #0367A6;
     margin-bottom: 10px;
 }
 
@@ -333,9 +338,16 @@ background: #F4F4F4;
 }
 
 #detailCommentInd button:hover{
-    background-color: palegoldenrod;
-    color:#027373;
+    background-color: #A2CDF2;
+    color:#0367A6;
     cursor: pointer;
+}
+
+#divCommUpdate{
+    text-align: center;
+    color: #0367A6;
+    border-radius: 2em;
+    border: 2px solid #0367A6;
 }
 
 /* page administrateur */
@@ -364,7 +376,7 @@ background: #F4F4F4;
 
 #pBtnReponse button:hover {
     text-decoration: none;
-    color: palegoldenrod;
+    color: #A2CDF2;
 }
 
 .btnAdmin{
@@ -381,7 +393,7 @@ background: #F4F4F4;
 
 .btnAdmin a:hover{
     text-decoration: none;
-    color: palegoldenrod;
+    color: #A2CDF2;
 }
 
 
@@ -400,4 +412,8 @@ footer{
     height: 80px;
     color: white;
     margin-top: 40px;
+}
+
+footer ul{
+    margin-top: 20px;
 }

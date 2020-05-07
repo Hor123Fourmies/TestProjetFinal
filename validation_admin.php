@@ -79,6 +79,8 @@ else{
 }
 
 
+include "footer.php";
+
 
 
 

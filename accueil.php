@@ -19,10 +19,8 @@ include "nav.php";
 
     echo "Page d'accueil";
 
-
+    include "footer.php";
     ?>
     </body>
     </html>
-
-<?php
 

@@ -9,8 +9,12 @@
 
 <footer>
     <ul>
+        <li>Copyright</li>
         <li>Plan du site</li>
         <li>Mentions légales</li>
+        <li>Politique de confidentialité</li>
+        <li>Conditions d'utilisation</li>
+        <li>Contact</li>
     </ul>
 </footer>
 

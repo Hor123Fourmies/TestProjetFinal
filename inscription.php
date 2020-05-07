@@ -127,39 +127,38 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <legend>Vos informations d'inscription</legend>
 
-            <p>
+            <div>
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" name="pseudo" id="pseudo" minlength="3" maxlength="25"/>
-                <span class="messErrInscription"><?php if (isset($erreur_pseudo)) echo $erreur_pseudo ?></span>
-                <span class="messErrInscription"><?php if (isset($erreur_pseudo2)) echo $erreur_pseudo2 ?></span>
-                <span class="messErrInscription"><?php if (isset($erreur_doublon)) echo $erreur_doublon ?></span>
+                <p class="messErrInscription"><?php if (isset($erreur_pseudo)) echo $erreur_pseudo ?></p>
+                <p class="messErrInscription"><?php if (isset($erreur_pseudo2)) echo $erreur_pseudo2 ?></p>
+                <p class="messErrInscription"><?php if (isset($erreur_doublon)) echo $erreur_doublon ?></p>
+            </div>
 
-            </p>
-
-            <p>
+            <div>
                 <label for="mdp">Mot de passe :</label>
                 <input type="password" name="mdp" id="mdp" minlength="6" maxlength="12"/>
-                <span class="messErrInscription"><?php if (isset($erreur_mdp)) echo $erreur_mdp ?></span>
-            </p>
+                <p class="messErrInscription"><?php if (isset($erreur_mdp)) echo $erreur_mdp ?></p>
+            </div>
 
-            <p>
+            <div>
                 <label for="mdp2">Confirmation du mot de passe :</label>
                 <input type="password" name="mdp2" id="mdp2" minlength="6" maxlength="12"/>
-                <span class="messErrInscription"><?php if (isset($erreur_mdp2)) echo $erreur_mdp2 ?></span>
-            </p>
+                <p class="messErrInscription"><?php if (isset($erreur_mdp2)) echo $erreur_mdp2 ?></p>
+            </div>
 
-            <p>
+            <div>
                 <label for="email">Email :</label>
                 <input type="text" name="email" id="email"/>
-                <span class="messErrInscription"><?php if (isset($erreur_email)) echo $erreur_email ?></span>
-                <span class="messErrInscription"><?php if (isset($erreur_email2)) echo $erreur_email2 ?></span>
-            </p>
+                <p class="messErrInscription"><?php if (isset($erreur_email)) echo $erreur_email ?></p>
+                <p class="messErrInscription"><?php if (isset($erreur_email2)) echo $erreur_email2 ?></p>
+            </div>
 
-            <p>
+            <div>
                 <label for="today">Date :</label>
                 <input type="hidden" name="today" id="today">
                 <span><?= $aujourdhui?></span>
-            </p>
+            </div>
 
             <P>
                 <input type="hidden" name="adresse" id="input_adresse">
@@ -177,7 +176,12 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
         <?php
 if (isset($erreur)) echo '<br />',$erreur;
+
+
+include "footer.php";
 ?>
+
+
 </body>
 </html>
 

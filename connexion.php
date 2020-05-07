@@ -47,16 +47,16 @@ if (isset($_POST['connexion'])) {
                     header("refresh:2;url=indexAjax.php");
                 }
                 else {
-                    echo "Vous n'avez pas rentré les bons identifiants.";
+                    $erreur_identifiant = "Vous n'avez pas rentré les bons identifiants.";
                 }
             }
         }
         else{
-            echo "Les identifiants sont incorrects";
+            $erreur_identifiant2 = "Les identifiants sont incorrects.";
         }
     }
     else{
-        echo "Au moins un des champs est vide.";
+        $erreur_champVide = "Au moins un des champs est vide.";
     }
 }
 ?>
@@ -84,22 +84,20 @@ if (isset($_POST['connexion'])) {
             <p>
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" name="pseudo" id="pseudo" minlength="3" maxlength="25"/>
-                <span class="messErrConnexion"><?php if (isset($erreur_pseudo)) echo $erreur_pseudo ?></span>
-                <span class="messErrConnexion"><?php if (isset($erreur_pseudo2)) echo $erreur_pseudo2 ?></span>
-
             </p>
 
             <p>
                 <label for="mdp">Mot de passe :</label>
                 <input type="password" name="mdp" id="mdp" minlength="6" maxlength="12"/>
-                <span class="messErrConnexion"><?php if (isset($erreur_mdp)) echo $erreur_mdp ?></span>
             </p>
 
             <P>
                 <input type="hidden" name="adresse" id="input_adresse">
             </p>
 
-
+            <span class="messErrConnexion"><?php if (isset($erreur_identifiant)) echo $erreur_identifiant ?></span>
+            <span class="messErrConnexion"><?php if (isset($erreur_identifiant2)) echo $erreur_identifiant2 ?></span>
+            <span class="messErrConnexion"><?php if (isset($erreur_champVide)) echo $erreur_champVide ?></span>
 
         </fieldset>
         <p class="pBtn"><input type="submit" name="connexion" value="Connexion"/></p>
