@@ -112,5 +112,9 @@ if (isset($_POST['connexion'])) {
        <p><a class="aaa" href="deconnexion.php">Se déconnecter</a>
 -->
 
+    <?php
+    include "footer.php";
+    ?>
+
     </body>
 </html>

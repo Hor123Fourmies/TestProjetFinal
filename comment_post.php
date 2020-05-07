@@ -100,8 +100,8 @@ while ($row = $result->fetch_assoc()) {
             <input type="hidden" name="date" id="date" value="<?php echo $today ?>"><?php echo $aujourdhui ?>
         </p>
 
-        <p>
-            <input type="submit" name="PostComment" id="" value="Poster le commentaire">
+        <p id="pBtnPostComment" >
+            <input type="submit" name="PostComment" value="Poster le commentaire">
         </p>
 
     </fieldset>
@@ -115,4 +115,9 @@ else{
 }
 
 ?>
+
+<?php
+include "footer.php";
+?>
+
 </body>

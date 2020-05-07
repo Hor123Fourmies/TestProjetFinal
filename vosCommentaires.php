@@ -84,13 +84,13 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
     switch ($cpte_comment){
         case $cpte_comment === 0:
-            echo "Il n'y a aucun commentaire.";
+            echo "<p class='pNbComm'>Il n'y a aucun commentaire.</p>";
             break;
         case $cpte_comment === 1:
-            echo "Il y a un commentaire.";
+            echo "<p class='pNbComm'>Il y a un commentaire.</p>";
             break;
         case $cpte_comment > 1:
-            echo "Il y a ". $cpte_comment. " commentaires.";
+            echo "<p class='pNbComm'>Il y a ". $cpte_comment. " commentaires.</p>";
             break;
     }
 
@@ -137,9 +137,10 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         $pseudo = $row['pseudo_user'];
         $date = $row['date'];
         ?>
-        <p><?= "Rédigé par ".$pseudo." le ".$date ?> </p>
-        <p><?php echo utf8_encode($texteComment)?></p>
-
+        <div id="divCommRep">
+            <p style="font-size: 12px"><?= "Rédigé par ".$pseudo." le ".$date ?> </p>
+            <p><?php echo utf8_encode($texteComment)?></p>
+        </div>
         <?php
 
 // Boucle qui affiche les réponses liées aux commentaires
@@ -151,8 +152,16 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         while ($row = mysqli_fetch_array($result_reponse)){
             $idReponse = $row['idReponse'];
             $texteReponse = $row['texte_reponse'];
+            $login = $row['login'];
+            $dateR = $row['date_reponse'];
+            $dateR = date("d-m-Y");
             ?>
-            <p style="color:#027373"><?= utf8_encode($texteReponse)?></p>
+            <div id="divRepAdm">
+                <p style="font-size: 12px"> Réponse rédigée par <?=$login?> le <?= $dateR ?></p>
+                <p class="pRepAdm"><?= utf8_encode($texteReponse)?></p>
+
+            </div>
+
             <?php
         }
 
@@ -161,62 +170,32 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
     ?>
 
-    <div id="divPagination">
+            <div id="divPagination">
+                <?php
+                for ($i = 1; $i <= $nbPages; $i++) {
+                    if ($i == $page) {
+                        echo '<b>' . $i . '</b> ';
+                    } else {
+                        echo '<a href="vosCommentaires.php?id=' . $idSiteGet . '&page=' . $i . '">' . $i . '</a> ';
+                    }
+
+                }
+
+                ?>
+            </div>
+        </div>
         <?php
-        for ($i = 1; $i <= $nbPages; $i++){
-            if($i == $page){
-                echo '<b>'.$i.'</b> ';
-            }
-else{
-    echo '<a href="vosCommentaires.php?id='.$idSiteGet.'&page=' . $i . '">' . $i . '</a> ';
+
+    }
+} else {
+    echo $conn->error;
 }
 
-        }
+?>
 
-        ?>
-    </div>
-        </div>
+
 <?php
+include "footer.php";
+?>
 
-    }
-    }
-
-    else{
-    echo $conn->error;
-    }
-
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
     </body>

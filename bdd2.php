@@ -93,10 +93,6 @@ $siteInternet = $row['site_internet'];
 
 <?php
 
-
-
-
-
 }
 ?>
 </div>
@@ -104,6 +100,10 @@ $siteInternet = $row['site_internet'];
 <?php
 
 }
+?>
+
+<?php
+include "footer.php";
 ?>
 
 </body>

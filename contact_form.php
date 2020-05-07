@@ -137,6 +137,11 @@ if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
     <div style="text-align:center;"><input type="submit" name="envoiMessage" id="btnEnvoyerFormContact" value="Envoyez votre message"/></div>
 
 </form>
+
+<?php
+include "footer.php";
+?>
+
 </body>
 
 

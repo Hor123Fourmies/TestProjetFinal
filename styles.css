@@ -6,7 +6,7 @@ body{
 nav{
     background: #027373;
     border: 1px solid darkgrey;
-    height: 80px;
+    height: 90px;
     display: flex;
 }
 
@@ -47,7 +47,9 @@ nav ul li a:hover{
 .divConnSession{
     float: right;
     border: 2px solid darkgreen;
-    padding: 5px;
+    padding-top: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
     background: white;
     color: #027373;
     font-size: 14px;
@@ -203,6 +205,7 @@ input[type=submit]{
     margin-top: 15px;
     padding: 10px;
     opacity: 0.75;
+    margin-bottom: 25px;
 }
 
 input[type=submit]:hover {
@@ -264,8 +267,38 @@ background: #F4F4F4;
     overflow: auto;
 }
 
+.pNbComm{
+    color: white;
+    background: #027373;
+    margin: 0;
+}
+
+#divCommRep{
+    border-top: 1px solid #027373;
+}
+
+#divRepAdm{
+    padding-top: 10px;
+}
+
+
+#divRepAdm p{
+    padding-left: 250px;
+    font-style: italic;
+
+}
+.pRepAdm{
+    color: #0367A6;
+}
+
 #divPagination a:hover{
-    color:red;
+    color:#49B1F2;
+}
+
+/* Page post commentaires */
+
+#pBtnPostComment{
+    text-align: center;
 }
 
 /* page des commentaires individuels */
@@ -359,3 +392,12 @@ background: #F4F4F4;
     margin-top: 20px;
 }
 
+/* Footer */
+
+footer{
+    background: #027373;
+    border: 1px solid darkgrey;
+    height: 80px;
+    color: white;
+    margin-top: 40px;
+}

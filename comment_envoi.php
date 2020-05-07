@@ -44,19 +44,31 @@ else{
 
 // Requête préparée
 
-$stmt = $conn->prepare("INSERT INTO commentaires (id_site, texte_comment, pseudo_user, date) VALUES (?,?,?,?)");
+if(!empty($texte_comment)){
+    $stmt = $conn->prepare("INSERT INTO commentaires (id_site, texte_comment, pseudo_user, date) VALUES (?,?,?,?)");
 
-$stmt->bind_param("isss", $idSite, $texte_comment, $pseudo, $today);
+    $stmt->bind_param("isss", $idSite, $texte_comment, $pseudo, $today);
 
 
-if($stmt->execute()){
-    $retour = "Merci $pseudo. Votre commentaire a bien été enregistré.";
-    print $retour;
-    header("refresh:2;url=vosCommentaires.php?id=$idSite");
+    if($stmt->execute()){
+        $merci = "Merci $pseudo.";
+        $retour = " Votre commentaire a bien été enregistré.";
+        print $merci;
+        echo '<br>';
+        print $retour;
+        header("refresh:2;url=vosCommentaires.php?id=$idSite");
 
-}else{
-print $conn->error;
+    }else{
+        print $conn->error;
+    }
 }
+else{
+    echo "<p>Le champs 'Votre commentaire' est vide.</p>";
+    echo "<p>Retour automatique à la page précédente...</p>";
+    header("refresh:2;url=comment_post.php?id=$idSite");
+}
+
+
 
 
 //$stmt->execute();
@@ -64,12 +76,9 @@ print $conn->error;
 $stmt->close();
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-</head>
-<body>
+
+<?php
+include "footer.php";
+?>
+
+</body>
