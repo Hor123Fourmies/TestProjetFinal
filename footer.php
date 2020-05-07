@@ -8,13 +8,23 @@
 </head>
 
 <footer>
-    <ul>
-        <li>Copyright</li>
-        <li>Plan du site</li>
-        <li>Mentions légales</li>
-        <li>Politique de confidentialité</li>
-        <li>Conditions d'utilisation</li>
-        <li>Contact</li>
+    <ul class="ulFooter">
+        <li class="liFooter">Copyright</li>
+        <li class="liFooter">Plan du site
+            <ul class="ulPlan">
+                <li class="liPlan">Accueil</li>
+                <li class="liPlan">Sites</li>
+                <li class="liPlan">Carte</li>
+                <li class="liPlan">Contact</li>
+                <li class="liPlan">Connexion</li>
+                <li class="liPlan">Inscription</li>
+                <li class="liPlan">Admin</li>
+            </ul>
+        </li>
+        <li class="liFooter">Mentions légales</li>
+        <li class="liFooter">Politique de confidentialité</li>
+        <li class="liFooter">Conditions d'utilisation</li>
+        <li class="liFooter"><a class="aFooter" href="contact_form.php">Contact</a></li>
     </ul>
 </footer>
 

@@ -15,12 +15,12 @@ nav{
 
 }
 
-ul{
+nav ul{
     margin: auto;
     text-align: center;
 }
 
-li{
+nav ul li{
     display: inline;
     padding: 10px;
 }
@@ -412,8 +412,40 @@ footer{
     height: 80px;
     color: white;
     margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
-footer ul{
-    margin-top: 20px;
+.ulFooter{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.liFooter{
+    list-style-type: none;
+    font-size: 14px;
+
+}
+
+.aFooter{
+    color: white;
+    text-decoration: none;
+}
+
+.aFooter:hover{
+    color: goldenrod;
+}
+
+.liPlan{
+    list-style-type: none;
+    font-size: 11px;
+
+}
+
+.ulPlan{
+    padding-left: 0;
+
 }
