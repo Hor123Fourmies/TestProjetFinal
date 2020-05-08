@@ -17,6 +17,7 @@ function secureDonneesForm($donnees_form){
     $donnees_form = trim($donnees_form);
     // Suppression des \
     $donnees_form = stripslashes($donnees_form);
+
     return $donnees_form;
 }
 
@@ -24,7 +25,9 @@ function secureDonneesForm($donnees_form){
 $idSite = $_POST['idSite'];
 
 $texte_comment = utf8_decode($_POST['commentaire']);
-$texte_comment = secureDonneesForm($texte_comment);
+//$texte_comment = secureDonneesForm($texte_comment);
+//$texte_commentA = str_replace("à", "a", $texte_comment);
+
 
 $pseudo = $_POST['pseudo'];
 
@@ -48,7 +51,6 @@ if(!empty($texte_comment)){
     $stmt = $conn->prepare("INSERT INTO commentaires (id_site, texte_comment, pseudo_user, date) VALUES (?,?,?,?)");
 
     $stmt->bind_param("isss", $idSite, $texte_comment, $pseudo, $today);
-
 
     if($stmt->execute()){
         $merci = "Merci $pseudo.";
