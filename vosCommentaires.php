@@ -43,7 +43,10 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
     $titreSite = $row['titre_site'];
     $photo = $row['photo'];
     $commune = $row['commune'];
-    $texte = $row['texte'];
+    $texte = utf8_encode($row['texte']);
+    $tarifs = utf8_encode($row['tarifs']);
+    $horaires = utf8_encode($row['horaires']);
+    $siteInternet = $row['site_internet'];
 
 
 ?>
@@ -55,8 +58,12 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
 
         <div id="divTexteDetail">
             <p class="pTitre"><?php echo utf8_encode($titreSite) ?> </p>
-            <p style="margin-left: 5%"><?php echo utf8_encode($texte) ?> </p>
-
+            <p class="pDivTexteDetail"><?php echo nl2br($texte) ?> </p>
+            <h5 class="pDivTexteDetail">Horaires</h5>
+            <p class="pDivTexteDetail"><?php echo nl2br($horaires) ?> </p>
+            <h5 class="pDivTexteDetail">Tarifs</h5>
+            <p class="pDivTexteDetail"><?php echo nl2br($tarifs) ?> </p>
+            <p class="pDivTexteDetail"><a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo utf8_encode($siteInternet) ?> </a></p>
         </div>
 
     </div>

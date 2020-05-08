@@ -10,6 +10,7 @@ $dbname = "project";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
+/*
 function secureDonneesForm($donnees_form){
     // neutralisation des <>
     $donnees_form = htmlspecialchars($donnees_form);
@@ -20,7 +21,7 @@ function secureDonneesForm($donnees_form){
 
     return $donnees_form;
 }
-
+*/
 
 $idSite = $_POST['idSite'];
 
@@ -69,8 +70,6 @@ else{
     echo "<p>Retour automatique à la page précédente...</p>";
     header("refresh:2;url=comment_post.php?id=$idSite");
 }
-
-
 
 
 //$stmt->execute();

@@ -38,12 +38,6 @@ nav ul li a:hover{
     color: #027373;
 }
 
-
-#logout{
-    height: 40px;
-    width: 40px;
-}
-
 .divConnSession{
     float: right;
     border: 2px solid darkgreen;
@@ -58,6 +52,16 @@ nav ul li a:hover{
 .divConnSession p{
     margin:0;
 }
+
+/* Carrousel */
+
+#carousel_nature{
+    height: 45%;
+    width: 45%;
+}
+
+
+
 
 
 /* Sites */
@@ -236,7 +240,7 @@ h3{
 #divPhotoDetail img{
     padding: 26px;
     border: 1px solid #bbb;
-background: #F4F4F4;
+    background: #F4F4F4;
     color: #777;
     box-shadow: 0 0 0 6px #027373 inset, 0 0 0 12px #7F8C1C inset;
     width: 276px;
@@ -308,6 +312,9 @@ background: #F4F4F4;
 
 /* page des commentaires individuels */
 
+.pDivTexteDetail {
+    padding-left: 5%;
+}
 
 #divNbCommentInd{
     text-align: center;
