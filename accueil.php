@@ -22,7 +22,6 @@ include "nav.php";
     <div id="carousel_nature" class="carousel slide carousel-fade" data-ride="carousel"
          data-interval="4000" data-pause="hover">
 
-
         <ul class="carousel-indicators">
             <li data-target="#carousel_nature" data-slide-to="0" class="active"></li>
             <li data-target="#carousel_nature" data-slide-to="1"></li>
@@ -39,13 +38,13 @@ include "nav.php";
             <div class="carousel-item">
                 <img alt="" src="Photos/grangePapillons.jpg" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block text-dark">
-                    <h3>Nature</h3>
+                    <h3 style="color:white">Nature</h3>
                 </div>
             </div>
             <div class="carousel-item">
                 <img alt="" src="Photos/aquascope.jpg" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Aventure</h3>
+                    <h3 style="color:white">Aventure</h3>
                 </div>
             </div>
         </div>
