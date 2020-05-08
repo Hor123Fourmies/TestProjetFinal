@@ -453,5 +453,20 @@ footer{
 
 .ulPlan{
     padding-left: 0;
+}
+
+
+/*Media query pour les smartphones*/
+
+@media (max-width: 812px){
 
 }
+
+
+/*Media query pour les smartphones*/
+
+@media (max-width: 1138px)
+{
+    
+}
+
