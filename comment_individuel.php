@@ -69,7 +69,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
         $id = $row['id'];
         $idSite = $row['id_site'];
         $pseudo = $row['pseudo_user'];
-        $texteComment = utf8_encode($row['texte_comment']);
+        $texteComment = ($row['texte_comment']);
         $date = date('d-m-Y', strtotime($row['date']));
 
         $sql_titre = "SELECT id, titre_site FROM site WHERE id = $idSite";
@@ -117,10 +117,12 @@ else{
 
 $idPost = $_POST['idComment'];
 $texteComment2 = $_POST['comment'];
+$texteComment3 = addslashes($texteComment2);
+$texteComment4 = utf8_decode($texteComment3);
 $today = date("Y-m-d");
 
 if(isset($texteComment2)){
-    $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment2', date = '$today' WHERE id = $idPost";
+    $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment4', date = '$today' WHERE id = $idPost";
     $conn->query($sql_modifComment);
 
     if ($conn->query($sql_modifComment)) {
