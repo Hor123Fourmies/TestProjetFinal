@@ -9,7 +9,7 @@ include "nav.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="Viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Poster un commentaire</title>
     <link rel="stylesheet" href="styles.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>

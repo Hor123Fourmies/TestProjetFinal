@@ -16,7 +16,7 @@ $conn->select_db($dbname);
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="Viewport" content="width=device-width, user-scalable=no">
     <title></title>
     <link rel="stylesheet" href="styles.css">
 </head>

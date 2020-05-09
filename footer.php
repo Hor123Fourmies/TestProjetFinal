@@ -12,13 +12,13 @@
         <li class="liFooter">Copyright</li>
         <li class="liFooter">Plan du site
             <ul class="ulPlan">
-                <li class="liPlan">Accueil</li>
-                <li class="liPlan">Sites</li>
-                <li class="liPlan">Carte</li>
-                <li class="liPlan">Contact</li>
-                <li class="liPlan">Connexion</li>
-                <li class="liPlan">Inscription</li>
-                <li class="liPlan">Admin</li>
+                <li class="liPlan"><a class="aFooter" href="accueil.php">Accueil</a></li>
+                <li class="liPlan"><a class="aFooter" href="indexAjax.php">Sites</a></li>
+                <li class="liPlan"><a class="aFooter" href="carte.php">Carte</a></li>
+                <li class="liPlan"><a class="aFooter" href="contact_form.php">Contact</a></li>
+                <li class="liPlan"><a class="aFooter" href="connexion.php">Connexion</a></li>
+                <li class="liPlan"><a class="aFooter" href="inscription.php">Inscription</a></li>
+                <li class="liPlan"><a class="aFooter" href="admin.php">Admin</a></li>
             </ul>
         </li>
         <li class="liFooter">Mentions légales</li>

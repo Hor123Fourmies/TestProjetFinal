@@ -35,7 +35,7 @@ include "nav.php";
             <div class="carousel-item active">
                 <img alt="" src="Photos/chateauChimay.jpg" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Culture</h3>
+                    <h3 style="color: #0367A6">Culture</h3>
                 </div>
             </div>
             <div class="carousel-item">
@@ -74,8 +74,30 @@ include "nav.php";
 
 echo "Je vous souhaite la bienvenue sur mon site et suis heureuse de partager avec vous mes coups de coeur à visiter à Chimay et aux alentours, en Belgique et en France !";
 
-include "footer.php";
+
 ?>
+
+<footer style="min-height: 175px">
+    <ul class="ulFooter">
+        <li class="liFooter">Copyright</li>
+        <li class="liFooter">Plan du site
+            <ul class="ulPlan">
+                <li class="liPlan"><a class="aFooter" href="accueil.php">Accueil</a></li>
+                <li class="liPlan"><a class="aFooter" href="indexAjax.php">Sites</a></li>
+                <li class="liPlan"><a class="aFooter" href="carte.php">Carte</a></li>
+                <li class="liPlan"><a class="aFooter" href="contact_form.php">Contact</a></li>
+                <li class="liPlan"><a class="aFooter" href="connexion.php">Connexion</a></li>
+                <li class="liPlan"><a class="aFooter" href="inscription.php">Inscription</a></li>
+                <li class="liPlan"><a class="aFooter" href="admin.php">Admin</a></li>
+            </ul>
+        </li>
+        <li class="liFooter">Mentions légales</li>
+        <li class="liFooter">Politique de confidentialité</li>
+        <li class="liFooter">Conditions d'utilisation</li>
+        <li class="liFooter"><a class="aFooter" href="contact_form.php">Contact</a></li>
+    </ul>
+</footer>
+
 
 </body>
 </html>

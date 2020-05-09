@@ -64,7 +64,7 @@ if (isset($_POST['connexion'])) {
 <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8" name="Viewport" content="width=device-width, user-scalable=no">
         <title>Inscription</title>
         <link rel="stylesheet" href="styles.css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>

@@ -8,7 +8,7 @@ include "nav.php";
 <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8" name="Viewport" content="width=device-width, user-scalable=no">
         <title>Vos_commentaires</title>
         <link rel="stylesheet" href="styles.css" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>

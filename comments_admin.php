@@ -45,7 +45,7 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
                 ?>
                 <span> <?= $idCommentaire ?></span>
                 <span> <?= utf8_encode($titreSite) ?></span>
-                <span><?= $commentaire ?></span>
+                <span><?= utf8_encode($commentaire) ?></span>
                 <span><?= $pseudo ?></span>
 
                 <?php

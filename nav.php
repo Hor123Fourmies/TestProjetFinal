@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" name="Viewport" content="width=device-width, user-scalable=no">
     <title>Title</title>
     <link rel="stylesheet" href="styles.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -15,19 +15,19 @@ session_start();
 
     <nav>
 
-        <ul>
+        <ul id="navUl">
             <li><a <?php if(PAGE == 'accueil'){ echo ' class="nav_active"'; } ?> href="accueil.php">Accueil</a></li>
-            <li> | </li>
+            <li class="navTiret"> | </li>
             <li><a <?php if(PAGE == 'indexAjax'){ echo ' class="nav_active"'; } ?> href="indexAjax.php">Sites</a></li>
-            <li> | </li>
+            <li class="navTiret"> | </li>
             <li><a <?php if(PAGE == 'carte'){ echo ' class="nav_active"'; } ?> href="carte.php">Carte</a></li>
-            <li> | </li>
+            <li class="navTiret"> | </li>
             <li><a <?php if(PAGE == 'contact'){ echo ' class="nav_active"'; } ?> href="contact_form.php">Contact</a></li>
-            <li> | </li>
+            <li class="navTiret"> | </li>
             <li><a <?php if(PAGE == 'connexion'){ echo ' class="nav_active"'; } ?> href="connexion.php">Connexion</a></li>
-            <li> | </li>
+            <li class="navTiret"> | </li>
             <li><a <?php if(PAGE == 'inscription'){ echo ' class="nav_active"'; } ?> href="inscription.php">Inscription</a></li>
-            <li> | </li>
+            <li class="navTiret"> | </li>
             <li><a <?php if(PAGE == 'admin'){ echo ' class="nav_active"'; } ?> href="admin.php">Admin</a></li>
         </ul>
         <?php

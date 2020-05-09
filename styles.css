@@ -291,7 +291,6 @@ h3{
 
 
 #divRepAdm p{
-    padding-left: 250px;
     font-style: italic;
 
 }
@@ -458,7 +457,208 @@ footer{
 
 /*Media query pour les smartphones*/
 
-@media (max-width: 812px){
+@media screen and (max-width: 812px){
+
+    /* Sites */
+    #flexSite{
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .divSite{
+        padding-left: 0;
+    }
+
+    /* Connexion */
+
+    #connexion_form{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #connexion_form fieldset{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #connexion_form label{
+        max-width: 260px;
+    }
+
+    #connexion_form input{
+        max-width: 260px;
+    }
+
+    #connexion_form span {
+        font-size: 14px;
+    }
+
+
+
+
+    /* Inscription */
+    #inscription_form{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #inscription_form fieldset{
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+
+    #inscription_form label{
+        max-width: 150px;
+    }
+
+    #inscription_form input{
+        max-width: 260px;
+    }
+
+    /* Contact */
+
+    #contact_form{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #contact_form fieldset{
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+
+    #contact_form label{
+        max-width: 150px;
+    }
+
+    #contact_form input{
+        max-width: 260px;
+    }
+
+    #contact_form textarea{
+        max-width: 260px;
+    }
+
+    /* Admin */
+
+    .divConnSession{
+        font-size: 10px;
+    }
+
+    #form_reponse{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #form_reponse fieldset{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #form_reponse label{
+        max-width: 150px;
+    }
+
+    #form_reponse input{
+        max-width: 260px;
+    }
+
+    #form_reponse textarea{
+        max-width: 260px;
+    }
+
+/* Vos Commentaires */
+
+    #presentation_detail{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #commentaires_detail{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #divRepAdm p{
+        padding-left: 0;
+    }
+
+    #divCommentInd{
+        height: 260px;
+        margin-left: 2%;
+    }
+
+    #divCommentInd form{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #detailCommentInd{
+        border: 2px solid #027373;
+    }
+    #detailCommentInd textarea{
+        max-width: 260px;
+    }
+
+    #detailCommentInd p{
+        color: #027373;
+        text-align: center;
+    }
+
+    /* Comment_post */
+
+    #comment_form{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #comment_form fieldset{
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+
+    #comment_form label{
+        max-width: 140px;
+    }
+
+    #comment_form input{
+        max-width: 260px;
+    }
+
+    #comment_form textarea{
+        max-width: 260px;
+    }
+
+    /* Nav */
+
+    nav{
+        width: 100%;
+        height: auto;
+    }
+
+    #navUl{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+
+    #navUl li{
+        font-size: 14px;
+    }
+
+
+
+    .navTiret{
+        display: none;
+    }
 
 }
 
@@ -467,6 +667,6 @@ footer{
 
 @media (max-width: 1138px)
 {
-    
+
 }
 
