@@ -114,7 +114,6 @@ h2{
 }
 
 
-
 @keyframes opacite {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -140,8 +139,6 @@ h2{
 #divDetailSites a{
     font-size: 14px;
 }
-
-
 
 
 /* Formulaire contact + inscription */
@@ -244,7 +241,6 @@ h3{
     box-shadow: 0 0 0 6px #027373 inset, 0 0 0 12px #7F8C1C inset;
     width: 276px;
     height: 183px;
-
 }
 
 #presentation_detail{
@@ -288,7 +284,6 @@ h3{
 #divRepAdm{
     padding-top: 10px;
 }
-
 
 #divRepAdm p{
     font-style: italic;
@@ -495,8 +490,6 @@ footer{
     }
 
 
-
-
     /* Inscription */
     #inscription_form{
         margin-left: 0;
@@ -506,7 +499,6 @@ footer{
     #inscription_form fieldset{
         padding-left: 5%;
         padding-right: 5%;
-
     }
 
     #inscription_form label{
@@ -527,7 +519,6 @@ footer{
     #contact_form fieldset{
         padding-left: 5%;
         padding-right: 5%;
-
     }
 
     #contact_form label{
