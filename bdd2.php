@@ -83,7 +83,7 @@ $siteInternet = $row['site_internet'];
     <div id="divDetailSites">
         <a class="aTitre" href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo ($titre) ?> (<?php echo $total ?>)</h4></a>
         <p><?= ($accroche)?></p>
-        <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
+        <p class="pAdrInt"><a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a></p>
     </div>
 
 

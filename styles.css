@@ -471,6 +471,11 @@ footer{
         padding-left: 0;
     }
 
+    .pAdrInt{
+        border-bottom: #027373 1px solid;
+        padding-bottom: 20px;
+    }
+
     /* Connexion */
 
     #connexion_form{
