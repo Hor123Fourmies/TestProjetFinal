@@ -13,11 +13,11 @@ include "nav.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <!--
     <link href="bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     -->
-    <link rel="stylesheet" href="styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -64,20 +64,20 @@ include "nav.php";
     </div>
 </div>
 
+<div id="divAccueil">
+    <p>
+        Bienvenue sur mon nouveau site internet, réalisé dans le cadre de mon projet de fin d'année.
+    </p>
+    <p>
+        Je suis heureuse de partager avec vous mes 'coups de coeur' à visiter à Chimay et aux alentours, en Belgique et en France !
+    </p>
+    <p>
+        Il y en a pour tous les goûts : des endroits magiques à découvrir en toutes saisons !
+    </p>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
-<?php
-
-echo "Je vous souhaite la bienvenue sur mon site et suis heureuse de partager avec vous mes coups de coeur à visiter à Chimay et aux alentours, en Belgique et en France !";
-
-
-?>
-
-<footer style="min-height: 175px">
+<footer style="height: auto">
     <ul class="ulFooter">
         <li class="liFooter">Copyright</li>
         <li class="liFooter">Plan du site
@@ -97,6 +97,12 @@ echo "Je vous souhaite la bienvenue sur mon site et suis heureuse de partager av
         <li class="liFooter"><a class="aFooter" href="contact_form.php">Contact</a></li>
     </ul>
 </footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 </body>

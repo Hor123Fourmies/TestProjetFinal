@@ -60,8 +60,14 @@ nav ul li a:hover{
     width: 45%;
     margin-left: 25%;
     margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
+#divAccueil{
+    text-align: center;
+    color: #027373;
+}
 
 /* Sites */
 #flexSite{
