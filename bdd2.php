@@ -3,9 +3,9 @@
 session_start();
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "project";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -75,14 +75,14 @@ $siteInternet = $row['site_internet'];
     <!--
     <span><?php //echo $row['id'] . "<br>" ?></span>
     -->
-    <div id="photoDivSite"><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo utf8_encode($titre) ?>" src="Photos/<?php echo utf8_encode($photo) ?>\"></a></div>
+    <div id="photoDivSite"><a href=<?php echo "vosCommentaires.php?id=$idSite"?>><img alt="<?php echo ($titre) ?>" src="https://chimaycoupsdecoeur.000webhostapp.com/Photos/<?=$photo?>"></a></div>
     <div id="divLieu">
-        <h5 class="lieu"><?php echo utf8_encode($commune) ?></h5>
+        <h5 class="lieu"><?php echo ($commune) ?></h5>
         <h5 class="lieu"><?= $pays ?></h5>
     </div>
     <div id="divDetailSites">
-        <a class="aTitre "href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo utf8_encode($titre) ?> (<?php echo $total ?>)</h4></a>
-        <p><?= utf8_encode($accroche)?></p>
+        <a class="aTitre" href=<?php echo "vosCommentaires.php?id=$idSite"?>><h4 class="titre"><?php echo ($titre) ?> (<?php echo $total ?>)</h4></a>
+        <p><?= ($accroche)?></p>
         <a href="http://<?php echo $siteInternet?>" target="_blank"><?php echo $siteInternet?></a>
     </div>
 

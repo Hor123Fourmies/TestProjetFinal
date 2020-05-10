@@ -48,7 +48,7 @@ if (!empty($_POST['envoiMessage'])) {
             $to = "hortensere@aol.com";
             $sujet = $nom . " a contacté le site";
             /* Anti-spam + retour à la ligne */
-            $headers = "From : testProjet@test.be" . '\r\n' ."Reply-To : $email" . '\r\n';
+            $headers = "From : $email" . '\r\n' ."Reply-To : $email" . '\r\n';
             /* Suppression des antislashes */
             $nom = stripslashes($nom);
             $message = stripslashes($message);
