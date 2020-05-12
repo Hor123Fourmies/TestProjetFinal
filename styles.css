@@ -6,7 +6,7 @@ body{
 nav{
     background: #027373;
     border: 1px solid darkgrey;
-    height: 90px;
+    min-height: 100px;
     display: flex;
 }
 

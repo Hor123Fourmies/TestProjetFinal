@@ -1,11 +1,18 @@
 <?php
 
-include "nav.php";
+include "nav2.php";
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -59,7 +66,15 @@ if(!empty($texte_comment)){
         print $merci;
         echo '<br>';
         print $retour;
-        header("refresh:2;url=vosCommentaires.php?id=$idSite");
+        // header("refresh:2;url=vosCommentaires.php?id=$idSite");
+        ?>
+        <script lang="JavaScript">
+                function redirect() {
+                    window.location="https://chimaycoupsdecoeur.000webhostapp.com/vosCommentaires.php?id=<?= $idSite?>"
+                }
+                setTimeout("redirect()",2500); // delai en millisecondes
+            </script>
+        <?php
 
     }else{
         print $conn->error;

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 define('PAGE', 'vosCommentaires');
 include "nav.php";
 
@@ -18,10 +18,17 @@ include "nav.php";
 
 
 <?php
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -44,9 +51,9 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
     $photo = $row['photo'];
     $pays = $row['pays'];
     $commune = $row['commune'];
-    $texte = utf8_encode($row['texte']);
-    $tarifs = utf8_encode($row['tarifs']);
-    $horaires = utf8_encode($row['horaires']);
+    $texte = $row['texte'];
+    $tarifs = $row['tarifs'];
+    $horaires = $row['horaires'];
     $siteInternet = $row['site_internet'];
 
 
@@ -54,11 +61,11 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
     <div id="presentation_detail">
 
         <div id="divPhotoDetail">
-            <img alt="<?= $titreSite ?>" src="Photos/<?php echo $photo ?>\">
+            <img alt="<?= $titreSite ?>" src="https://chimaycoupsdecoeur.000webhostapp.com/Photos/<?=$photo?>">
         </div>
 
         <div id="divTexteDetail">
-            <p class="pTitre"><?php echo utf8_encode($titreSite)?></p>
+            <p class="pTitre"><?php echo $titreSite?></p>
             <p class="pDivTexteDetail" style="color: #027373"><?=$pays ?></p>
             <p class="pDivTexteDetail"><?php echo nl2br($texte) ?> </p>
             <h5 class="pDivTexteDetail">Horaires</h5>
@@ -148,7 +155,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         ?>
         <div id="divCommRep">
             <p style="font-size: 12px"><?= "Rédigé par ".$pseudo." le ".$date ?> </p>
-            <p><?php echo utf8_encode($texteComment)?></p>
+            <p><?php echo $texteComment?></p>
         </div>
         <?php
 
@@ -167,7 +174,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
             ?>
             <div id="divRepAdm">
                 <p style="font-size: 12px"> Réponse rédigée par <?=$login?> le <?= $dateR ?></p>
-                <p class="pRepAdm"><?= utf8_encode($texteReponse)?></p>
+                <p class="pRepAdm"><?= $texteReponse?></p>
 
             </div>
 

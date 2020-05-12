@@ -1,11 +1,17 @@
 <?php
 define('PAGE', 'connexion');
 include "nav.php";
-
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -20,15 +26,16 @@ function secureDonneesForm($donnees_form){
     return $donnees_form;
 }
 
-$pseudo = ($_POST['pseudo']);
-$pseudo = secureDonneesForm($pseudo);
-
-$motDePasse = ($_POST['mdp']);
-$motDePasse = secureDonneesForm($motDePasse);
-$motDePasse = sha1($motDePasse);
-
 
 if (isset($_POST['connexion'])) {
+
+    $pseudo = $_POST['pseudo'];
+    $pseudo = secureDonneesForm($pseudo);
+
+    $motDePasse = $_POST['mdp'];
+    $motDePasse = secureDonneesForm($motDePasse);
+    $motDePasse = sha1($motDePasse);
+
     if (!empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
         $sql_pseudo = $conn->query("SELECT COUNT(*) FROM `user_connexion` where pseudo = '$pseudo'");
         $row = mysqli_fetch_array($sql_pseudo);
@@ -40,11 +47,21 @@ if (isset($_POST['connexion'])) {
             $result = $conn->query($sql_connexion);
             while ($row = $result->fetch_assoc()) {
                 if ($motDePasse == $row['mdp']) {
-                    session_start();
+                    // session_start();
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['mdp'] = $motDePasse;
                     echo "Bienvenue $pseudo";
-                    header("refresh:2;url=indexAjax.php");
+                    // header("refresh:2;url=https://chimaycoupsdecoeur.000webhostapp.com/indexAjax.php");
+                    ?>
+                    <script lang="JavaScript">
+
+                        function redirect() {
+                            window.location="https://chimaycoupsdecoeur.000webhostapp.com/indexAjax.php"
+                        }
+                        setTimeout("redirect()",2500); // delai en millisecondes
+                    </script>
+                    <?php
+
                 }
                 else {
                     $erreur_identifiant = "Vous n'avez pas rentré les bons identifiants.";
@@ -88,7 +105,7 @@ if (isset($_POST['connexion'])) {
 
             <p>
                 <label for="mdp">Mot de passe :</label>
-                <input type="password" name="mdp" id="mdp" minlength="6" maxlength="12"/>
+                <input type="password" name="mdp" id="mdp" minlength="4" maxlength="12"/>
             </p>
 
             <P>

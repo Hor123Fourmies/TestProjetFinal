@@ -1,11 +1,18 @@
 <?php
 session_start();
-include "nav.php";
+include "nav2.php";
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -44,8 +51,8 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
 
                 ?>
                 <span> <?= $idCommentaire ?></span>
-                <span> <?= utf8_encode($titreSite) ?></span>
-                <span><?= utf8_encode($commentaire) ?></span>
+                <span> <?= $titreSite ?></span>
+                <span><?= $commentaire ?></span>
                 <span><?= $pseudo ?></span>
 
                 <?php

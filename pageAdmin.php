@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "nav.php";
+include "nav2.php";
 
 
 if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {

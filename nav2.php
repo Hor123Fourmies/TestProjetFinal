@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+// session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -16,19 +18,19 @@ session_start();
     <nav>
 
         <ul id="navUl">
-            <li><a <?php if(PAGE == 'accueil'){ echo ' class="nav_active"'; } ?> href="accueil.php">Accueil</a></li>
+            <li><a href="accueil.php">Accueil</a></li>
             <li class="navTiret"> | </li>
-            <li><a <?php if(PAGE == 'indexAjax'){ echo ' class="nav_active"'; } ?> href="indexAjax.php">Sites</a></li>
+            <li><a href="indexAjax.php">Sites</a></li>
             <li class="navTiret"> | </li>
-            <li><a <?php if(PAGE == 'carte'){ echo ' class="nav_active"'; } ?> href="carte.php">Carte</a></li>
+            <li><a href="carte.php">Carte</a></li>
             <li class="navTiret"> | </li>
-            <li><a <?php if(PAGE == 'contact'){ echo ' class="nav_active"'; } ?> href="contact_form.php">Contact</a></li>
+            <li><a href="contact_form.php">Contact</a></li>
             <li class="navTiret"> | </li>
-            <li><a <?php if(PAGE == 'connexion'){ echo ' class="nav_active"'; } ?> href="connexion.php">Connexion</a></li>
+            <li><a href="connexion.php">Connexion</a></li>
             <li class="navTiret"> | </li>
-            <li><a <?php if(PAGE == 'inscription'){ echo ' class="nav_active"'; } ?> href="inscription.php">Inscription</a></li>
+            <li><a href="inscription.php">Inscription</a></li>
             <li class="navTiret"> | </li>
-            <li><a <?php if(PAGE == 'admin'){ echo ' class="nav_active"'; } ?> href="admin.php">Admin</a></li>
+            <li><a href="admin.php">Admin</a></li>
         </ul>
         <?php
         if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
@@ -60,4 +62,3 @@ session_start();
     </nav>
 
 </header>
-

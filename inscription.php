@@ -3,10 +3,17 @@ define('PAGE', 'inscription');
 include "nav.php";
 
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 function secureDonneesForm($donnees_form){
     // neutralisation des <>
@@ -18,18 +25,6 @@ function secureDonneesForm($donnees_form){
     return $donnees_form;
 }
 
-$pseudo = ($_POST['pseudo']);
-$pseudo = secureDonneesForm($pseudo);
-
-$motDePasse = ($_POST['mdp']);
-$motDePasse = secureDonneesForm($motDePasse);
-
-$confMotDePasse = ($_POST['mdp2']);
-$confMotDePasse = secureDonneesForm($confMotDePasse);
-
-$email = ($_POST['email']);
-$email = secureDonneesForm(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-
 $today = date("Y-m-d");
 $aujourdhui = date("d-m-Y");
 
@@ -37,6 +32,18 @@ $valide = true;
 
 /* Test : le visiteur a-t-il soumis le formulaire ? */
 if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
+
+    $pseudo = $_POST['pseudo'];
+    $pseudo = secureDonneesForm($pseudo);
+
+    $motDePasse = $_POST['mdp'];
+    $motDePasse = secureDonneesForm($motDePasse);
+
+    $confMotDePasse = $_POST['mdp2'];
+    $confMotDePasse = secureDonneesForm($confMotDePasse);
+
+    $email = $_POST['email'];
+    $email = secureDonneesForm(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
 
     /* Vérification de l'existence des variables. On vérifie aussi qu'elles ne soient pas vides */
 
@@ -75,17 +82,26 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
                 $sql_inscription = "INSERT INTO user_validation VALUES(NULL, '$pseudo', '$motDePasse', '$email', '$today')";
                 if ($conn->query($sql_inscription) == TRUE) {
                     $insertion = "Merci $pseudo. Votre inscription a bien été prise en compte. Celle-ci va être soumise à validation.";
-                    // $redirection = "Redirection automatique vers la page 'connexion...'";
+                    $redirection = "Redirection automatique vers la page 'connexion...'";
                     // session_start();
                     // $_SESSION['pseudo'] = $pseudo;
-                    header("refresh:5;url=connexion.php");
+                    // header("refresh:5;url=connexion.php");
+                    ?>
+                    <script lang="JavaScript">
+
+                        function redirect() {
+                            window.location="https://chimaycoupsdecoeur.000webhostapp.com/connexion.php"
+                        }
+                        setTimeout("redirect()",4000); // delai en millisecondes
+                    </script>
+                    <?php
+
                     }
                 else{
                     echo "Erreur : " . $sql_inscription . "<br>" . $conn->error;
                 }
             } else {
                 $erreur_doublon = 'Un membre possède déjà ce pseudo.';
-                echo $erreur_doublon;
                 // retour à la page ??
             }
         }
@@ -137,13 +153,13 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
             <div>
                 <label for="mdp">Mot de passe :</label>
-                <input type="password" name="mdp" id="mdp" minlength="6" maxlength="12"/>
+                <input type="password" name="mdp" id="mdp" minlength="4" maxlength="12"/>
                 <p class="messErrInscription"><?php if (isset($erreur_mdp)) echo $erreur_mdp ?></p>
             </div>
 
             <div>
                 <label for="mdp2">Confirmation du mot de passe :</label>
-                <input type="password" name="mdp2" id="mdp2" minlength="6" maxlength="12"/>
+                <input type="password" name="mdp2" id="mdp2" minlength="4" maxlength="12"/>
                 <p class="messErrInscription"><?php if (isset($erreur_mdp2)) echo $erreur_mdp2 ?></p>
             </div>
 
@@ -169,10 +185,14 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
         </fieldset>
 
         <p class="pBtn"><input type="submit" name="inscription" value="Inscription"/></p>
-    </form>
+
         <div>
-            <p style="color:forestgreen"><?php echo $insertion ?></p>
+            <p style="color:#027373"><?php if (isset($insertion)) echo $insertion ?></p>
+            <p style="color:#027373"><?php if (isset($insertion)) echo $redirection ?></p>
         </div>
+
+    </form>
+
 
         <?php
 if (isset($erreur)) echo '<br />',$erreur;

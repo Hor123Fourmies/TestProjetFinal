@@ -2,7 +2,7 @@
 session_start();
 //define('PAGE', 'comment_post');
 
-include "nav.php";
+include "nav2.php";
 // include "verif_connexion.php";
 
 ?>
@@ -23,17 +23,24 @@ include "nav.php";
 $aujourdhui = date("d-m-Y");
 $today = date("Y-m-d");
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
 if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp']) || isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
-    $session_pseudo = $_SESSION['pseudo'];
-    $session_admin = $_SESSION['loginAdmin'];
+    $session_pseudo = isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : NULL;
+    $session_admin = isset($_SESSION['loginAdmin']) ? $_SESSION['loginAdmin'] : NULL;;
 
 $idSiteGet = $_GET['id'];
 
@@ -81,7 +88,7 @@ while ($row = $result->fetch_assoc()) {
 
         <p>
             <label for="site">Site :</label>
-            <input type="hidden" name="site" id="site" value="<?php echo utf8_encode($titre_site)?>"><?php echo utf8_encode($titre_site)?>
+            <input type="hidden" name="site" id="site" value="<?php echo $titre_site?>"><?php echo $titre_site?>
         </p>
 
 
@@ -92,7 +99,7 @@ while ($row = $result->fetch_assoc()) {
 
         <p>
             <label for="pseudo">Votre pseudo :</label>
-            <input type="hidden" name="pseudo" id="pseudo" value="<?php echo $_SESSION['pseudo']?>"><?php echo $_SESSION['pseudo']?>
+            <input type="hidden" name="pseudo" id="pseudo" value="<?php echo isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : NULL ?>"><?php echo isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : NULL ?>
         </p>
 
         <p>

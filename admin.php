@@ -3,10 +3,17 @@
 define('PAGE', 'admin');
 include "nav.php";
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -21,25 +28,34 @@ function secureDonneesForm($donnees_form){
     return $donnees_form;
 }
 
-$loginAdmin = ($_POST['loginAdmin']);
-$loginAdmin = secureDonneesForm($loginAdmin);
-
-$motDePasseAdmin = ($_POST['mdpAdmin']);
-$motDePasseAdmin = secureDonneesForm($motDePasseAdmin);
-// $motDePasseAdmin = sha1($motDePasseAdmin);
-
 
 if (isset($_POST['connexionAdmin'])) {
+
+    $loginAdmin = $_POST['loginAdmin'];
+    $loginAdmin = secureDonneesForm($loginAdmin);
+
+    $motDePasseAdmin = $_POST['mdpAdmin'];
+    $motDePasseAdmin = secureDonneesForm($motDePasseAdmin);
+// $motDePasseAdmin = sha1($motDePasseAdmin);
+
     if (!empty($_POST['loginAdmin']) && !empty($_POST['mdpAdmin'])) {
         $sql_adminConnexion = "SELECT login, mdp FROM user_administration";
         $result = $conn->query($sql_adminConnexion);
         while ($row = $result->fetch_assoc()) {
             if ($loginAdmin == $row['login'] && $motDePasseAdmin == $row['mdp']) {
-                session_start();
+                // session_start();
                 $_SESSION['loginAdmin'] = $loginAdmin;
                 $_SESSION['mdpAdmin'] = $motDePasseAdmin;
-                echo "$loginAdmin. Vous êtes connecté en tant qu'administrateur";
-                header("refresh:2;url=pageAdmin.php");
+                echo "$loginAdmin. Vous êtes connecté en tant qu'administrateur.";
+                // header("refresh:2;url=pageAdmin.php");
+
+                echo '<script lang="JavaScript">
+
+                function redirect() {
+                    window.location="https://chimaycoupsdecoeur.000webhostapp.com/pageAdmin.php"
+                }
+                setTimeout("redirect()",2000); // delai en millisecondes
+            </script>';
             }
             else {
                 echo "Vous n'avez pas rentré les bons identifiants.";

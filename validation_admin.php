@@ -1,11 +1,18 @@
 <?php
 session_start();
-include "nav.php";
+include "nav2.php";
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
@@ -30,7 +37,7 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
             echo '- ' . $id . ' - ' . '<br>';
             echo 'Pseudo : ' . $pseudo . '<br>';
             echo ' E-mail : ' . $email . '<br>';
-            echo 'Date :' . $today . '<br>';
+            echo 'Date : ' . $today . '<br>';
 // Les liens « Accepter » et « Refuser » se placent ici.
 
             echo '<button><a href="validation_admin.php?action=accepter&id=' . $id . '">Accepter</a></button>';

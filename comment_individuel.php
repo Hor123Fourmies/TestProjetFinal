@@ -1,19 +1,27 @@
 <?php
 session_start();
 
-include "nav.php";
+include "nav2.php";
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "project";
+*/
+
+$servername = "localhost";
+$username = "id13641339_hortense";
+$password = ">yG^B9e^}(MCYS^e";
+$dbname = "id13641339_project";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
 if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
     $session_pseudo = $_SESSION['pseudo'];
-    $session_admin = $_SESSION['loginAdmin'];
+    //$session_admin = $_SESSION['loginAdmin'];
+    $session_admin = isset($_SESSION['loginAdmin']) ? $_SESSION['loginAdmin'] : NULL;
 
 
 ?>
@@ -88,9 +96,9 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
                 -->
                 <div id="detailCommentInd">
                     <input type="hidden" id="idComment" name="idComment" value="<?= $id ?>">
-                    <p><?= utf8_encode($titreSite)?> - <?= $date ?></p>
+                    <p><?= $titreSite?> - <?= $date ?></p>
                     <label for="comment"></label>
-                    <textarea id="comment" name="comment" cols="10" rows="10"><?= utf8_encode($texteComment) ?></textarea>
+                    <textarea id="comment" name="comment" cols="10" rows="10"><?= $texteComment ?></textarea>
                     <p>
                         <button type="submit">Modifier</button>
                     </p>
@@ -115,13 +123,16 @@ else{
 
     <?php
 
-$idPost = $_POST['idComment'];
-$texteComment2 = $_POST['comment'];
+// $idPost = $_POST['idComment'];
+$idPost = isset($_POST['idComment']) ? $_POST['idComment'] : NULL;
+// $texteComment2 = $_POST['comment'];
+$texteComment2 = isset($_POST['comment']) ? $_POST['comment'] : NULL;
 $texteComment3 = addslashes($texteComment2);
 $texteComment4 = utf8_decode($texteComment3);
 $today = date("Y-m-d");
 
 if(isset($texteComment2)){
+
     $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment4', date = '$today' WHERE id = $idPost";
     $conn->query($sql_modifComment);
 
@@ -131,8 +142,16 @@ if(isset($texteComment2)){
             <p>Merci, <?= $session_pseudo?>.</p>
             <p>Votre commentaire a bien été modifié.</p>
         </div>
-        <?php
-        header("refresh:2;url=comment_individuel.php");
+
+        // header("refresh:2;url=comment_individuel.php");
+        <script lang="JavaScript">
+
+                        function redirect() {
+                            window.location="https://chimaycoupsdecoeur.000webhostapp.com/comment_individuel.php"
+                        }
+                        setTimeout("redirect()",2500); // delai en millisecondes
+                    </script>
+                    <?php
     }
     else {
         print $conn->error;
