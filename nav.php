@@ -14,7 +14,6 @@ session_start();
 <header>
 
     <nav>
-
         <ul id="navUl">
             <li><a <?php if(PAGE == 'accueil'){ echo ' class="nav_active"'; } ?> href="accueil.php">Accueil</a></li>
             <li class="navTiret"> | </li>
@@ -55,7 +54,6 @@ session_start();
         }
 
         ?>
-
 
     </nav>
 

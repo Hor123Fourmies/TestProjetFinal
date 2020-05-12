@@ -3,6 +3,7 @@ body{
 }
 
 /* Barre nav */
+
 nav{
     background: #027373;
     border: 1px solid darkgrey;
@@ -649,14 +650,11 @@ footer{
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-
     }
 
     #navUl li{
         font-size: 14px;
     }
-
-
 
     .navTiret{
         display: none;
