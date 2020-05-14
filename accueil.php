@@ -80,7 +80,7 @@ include "nav.php";
 <footer style="height: auto">
     <ul class="ulFooter">
         <li class="liFooter">Copyright</li>
-        <li class="liFooter">Plan du site
+        <li class="liFooter" id="liPlanSite">Plan du site
             <ul class="ulPlan">
                 <li class="liPlan"><a class="aFooter" href="accueil.php">Accueil</a></li>
                 <li class="liPlan"><a class="aFooter" href="indexAjax.php">Sites</a></li>

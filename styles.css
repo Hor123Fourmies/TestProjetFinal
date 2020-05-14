@@ -661,6 +661,37 @@ footer{
         display: none;
     }
 
+    /* footer */
+
+    footer{
+        height: auto;
+    }
+
+    .ulFooter {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding-left: 2%;
+        margin: 0;
+    }
+
+    .ulPlan{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    #liPlanSite{
+        text-align: start;
+    }
+
+
+
+
+
 }
 
 
