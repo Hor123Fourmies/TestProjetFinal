@@ -350,7 +350,7 @@ h3{
     cursor: pointer;
 }
 
-#divCommUpdate{
+.divCommUpdate{
     text-align: center;
     color: #0367A6;
     border-radius: 2em;
@@ -602,6 +602,7 @@ footer{
     #detailCommentInd{
         border: 2px solid #027373;
     }
+
     #detailCommentInd textarea{
         max-width: 260px;
     }

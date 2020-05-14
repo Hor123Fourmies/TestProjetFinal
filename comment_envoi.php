@@ -32,7 +32,7 @@ function secureDonneesForm($donnees_form){
 
 $idSite = $_POST['idSite'];
 
-$texte_comment = utf8_decode($_POST['commentaire']);
+$texte_comment = $_POST['commentaire'];
 //$texte_comment = secureDonneesForm($texte_comment);
 //$texte_commentA = str_replace("à", "a", $texte_comment);
 
@@ -75,6 +75,9 @@ if(!empty($texte_comment)){
                 setTimeout("redirect()",2500); // delai en millisecondes
             </script>
         <?php
+//$stmt->execute();
+
+        $stmt->close();
 
     }else{
         print $conn->error;
@@ -83,17 +86,18 @@ if(!empty($texte_comment)){
 else{
     echo "<p>Le champs 'Votre commentaire' est vide.</p>";
     echo "<p>Retour automatique à la page précédente...</p>";
-    header("refresh:2;url=comment_post.php?id=$idSite");
+    // header("refresh:2;url=comment_post.php?id=$idSite");
+?>
+    <script lang="JavaScript">
+        function redirect() {
+            window.location="https://chimaycoupsdecoeur.000webhostapp.com/comment_post.php?id=<?= $idSite?>"
+        }
+        setTimeout("redirect()",2500); // delai en millisecondes
+    </script>
+<?php
+
 }
 
-
-//$stmt->execute();
-
-$stmt->close();
-
-?>
-
-<?php
 include "footer.php";
 ?>
 

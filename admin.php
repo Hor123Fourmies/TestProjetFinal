@@ -59,14 +59,14 @@ if (isset($_POST['connexionAdmin'])) {
             }
             else {
                 echo "Vous n'avez pas rentré les bons identifiants.";
-                var_dump($motDePasseAdmin);
+                // var_dump($motDePasseAdmin);
                 //echo $motDePasseAdmin;
 
             }
         }
     }
     else{
-        echo "Les identifiants sont incorrects";
+        echo "Les identifiants sont incorrects.";
     }
 }
 

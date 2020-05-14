@@ -54,7 +54,7 @@ if (!empty($_POST['envoiMessage'])) {
             $message = stripslashes($message);
 
             if (mail($to, $sujet, $message, $headers)) {
-                $retourMailOk = "Votre message nous est bien parvenu";
+                $retourMailOk = "Votre message nous est bien parvenu.";
                 /* Nettoyage des variables */
                 unset($nom);
                 unset($email);

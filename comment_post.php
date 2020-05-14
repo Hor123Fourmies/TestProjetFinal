@@ -40,7 +40,7 @@ $conn->select_db($dbname);
 
 if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp']) || isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
     $session_pseudo = isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : NULL;
-    $session_admin = isset($_SESSION['loginAdmin']) ? $_SESSION['loginAdmin'] : NULL;;
+    //$session_admin = isset($_SESSION['loginAdmin']) ? $_SESSION['loginAdmin'] : NULL;;
 
 $idSiteGet = $_GET['id'];
 
@@ -69,8 +69,7 @@ while ($row = $result->fetch_assoc()) {
         <legend>Insérez votre commentaire</legend>
         <!--
         <p>
-            <label for="site">Site :</label>
-            <select name="site" id="site">
+            <label for="site">Site :</label>            <select name="site" id="site">
                 <option value="">Veuillez effectuer votre choix :</option>
                 <option value="1"<?php if ($idSite === '1') { echo "selected = 'selected'";}?>>Château de Trelon</option>
                 <option value="2"<?php if ($idSite === '2') { echo "selected = 'selected'";}?>>Château de Chimay</option>
@@ -117,7 +116,7 @@ while ($row = $result->fetch_assoc()) {
 <?php
 }
 else{
-    echo '<p>Vous n\'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.</p>';
+    echo "<p>Vous n'êtes pas connecté au site. Vous ne pouvez donc pas accéder à cette page.</p>";
     echo '<p>Merci de vous rendre à la page <a class="aaa" href="connexion.php">Connexion</a>.</p>';
 }
 

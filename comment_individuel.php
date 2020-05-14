@@ -100,7 +100,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
                     <label for="comment"></label>
                     <textarea id="comment" name="comment" cols="10" rows="10"><?= $texteComment ?></textarea>
                     <p>
-                        <button type="submit">Modifier</button>
+                        <button type="submit" name="modif">Modifier</button>
                     </p>
                 </div>
 
@@ -128,37 +128,45 @@ $idPost = isset($_POST['idComment']) ? $_POST['idComment'] : NULL;
 // $texteComment2 = $_POST['comment'];
 $texteComment2 = isset($_POST['comment']) ? $_POST['comment'] : NULL;
 $texteComment3 = addslashes($texteComment2);
-$texteComment4 = utf8_decode($texteComment3);
+// $texteComment4 = utf8_decode($texteComment3);
 $today = date("Y-m-d");
 
-if(isset($texteComment2)){
+if (isset($_POST['modif'])) {
 
-    $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment4', date = '$today' WHERE id = $idPost";
-    $conn->query($sql_modifComment);
+    if (!empty($texteComment2)) {
+
+        $sql_modifComment = "UPDATE commentaires SET texte_comment = '$texteComment3', date = '$today' WHERE id = $idPost";
+        $conn->query($sql_modifComment);
 
     if ($conn->query($sql_modifComment)) {
         ?>
-        <div id="divCommUpdate">
-            <p>Merci, <?= $session_pseudo?>.</p>
+        <div class="divCommUpdate">
+            <p>Merci, <?= $session_pseudo ?>.</p>
             <p>Votre commentaire a bien été modifié.</p>
         </div>
 
-        // header("refresh:2;url=comment_individuel.php");
         <script lang="JavaScript">
 
-                        function redirect() {
-                            window.location="https://chimaycoupsdecoeur.000webhostapp.com/comment_individuel.php"
-                        }
-                        setTimeout("redirect()",2500); // delai en millisecondes
-                    </script>
-                    <?php
+            function redirect() {
+                window.location = "https://chimaycoupsdecoeur.000webhostapp.com/comment_individuel.php"
+            }
+
+            setTimeout("redirect()", 2500); // delai en millisecondes
+        </script>
+    <?php
     }
     else {
         print $conn->error;
     }
-
+    }
+    else{
+    ?>
+        <div class="divCommUpdate">
+            <p>Le champ est vide. Votre commentaire ne peut pas être modifié.</p>
+        </div>
+        <?php
+    }
 }
-
 
 
 include "footer.php";

@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="utf-8" name="Viewport" content="width=device-width, user-scalable=no">
-    <title>Title</title>
+    <title>Navigation</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>

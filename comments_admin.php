@@ -91,10 +91,10 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
 
     <?php
 
-    $idPost = $_POST['idComment'];
-    $reponse = utf8_decode($_POST['reponse']);
-    $login = $_POST['login'];
-    $date = $_POST['today'];
+    $idPost = isset($_POST['idComment']) ? $_POST['idComment'] : NULL;
+    $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : NULL;
+    $login = isset($_POST['login']) ? $_POST['reponse'] : NULL;
+    $date = isset($_POST['today']) ? $_POST['today'] : NULL;
 
 
     if (isset($idPost) && isset($reponse) && isset($login) && isset($date)) {
@@ -109,14 +109,14 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
             print $conn->error;
         }
 
-    }
-
-
 //$stmt->execute();
 
-    $stmt->close();
+        $stmt->close();
+    }
+
 }
 else{
     echo "Vous devez être connecté en tant qu'administrateur pour accéder à cette page.";
 }
+
 include "footer.php";
