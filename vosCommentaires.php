@@ -155,7 +155,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         ?>
         <div id="divCommRep">
             <p style="font-size: 12px"><?= "Rédigé par ".$pseudo." le ".$date ?> </p>
-            <p><?php echo $texteComment?></p>
+            <p><?php echo nl2br($texteComment)?></p>
         </div>
         <?php
 
@@ -174,7 +174,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
             ?>
             <div id="divRepAdm">
                 <p style="font-size: 12px"> Réponse rédigée par <?=$login?> le <?= $dateR ?></p>
-                <p class="pRepAdm"><?= $texteReponse?></p>
+                <p class="pRepAdm"><?= nl2br($texteReponse)?></p>
 
             </div>
 
