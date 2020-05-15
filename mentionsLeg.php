@@ -1,4 +1,5 @@
 <?php
+session_start();
 define ('PAGE', 'mentionsLeg');
 include "nav2.php";
 ?>

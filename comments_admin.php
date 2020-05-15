@@ -119,4 +119,4 @@ else{
     echo "Vous devez être connecté en tant qu'administrateur pour accéder à cette page.";
 }
 
-include "footer.php";
+include "footer2.php";

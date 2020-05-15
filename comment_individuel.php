@@ -169,7 +169,7 @@ if (isset($_POST['modif'])) {
 }
 
 
-include "footer.php";
+include "footer2.php";
 ?>
 
 

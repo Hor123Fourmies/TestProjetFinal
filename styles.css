@@ -446,6 +446,7 @@ footer ul li a{
 
 footer ul li a:hover{
     color: #A2CDF2;
+    text-decoration: none;
 }
 
 .aFooter{
@@ -455,6 +456,7 @@ footer ul li a:hover{
 
 .aFooter:hover{
     color: #A2CDF2;
+    text-decoration: none;
 }
 
 .liPlan{
