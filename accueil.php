@@ -33,19 +33,19 @@ include "nav.php";
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img alt="" src="Photos/chateauTrelon.jpg" class="d-block w-100">
+                <img alt="chateauTrelon" src="Photos/chateauTrelon.jpg" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 style="color:white">Culture</h3>
                 </div>
             </div>
             <div class="carousel-item">
-                <img alt="" src="Photos/aquaVirelles.jpg" class="d-block w-100">
+                <img alt="aquascopeVirelles" src="Photos/aquaVirelles.jpg" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block text-dark">
                     <h3 style="color:white">Nature</h3>
                 </div>
             </div>
             <div class="carousel-item">
-                <img alt="" src="Photos/secretChimay.jpg" class="d-block w-100">
+                <img alt="secretChimay" src="Photos/secretChimay.jpg" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 style="color:white">Aventure</h3>
                 </div>
