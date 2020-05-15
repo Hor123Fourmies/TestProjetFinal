@@ -461,6 +461,18 @@ footer{
 
 @media screen and (max-width: 700px){
 
+    /* Accueil */
+
+    #divAccueil p{
+        font-size: 14px;
+    }
+
+    #carousel_nature{
+        height: 60%;
+        width: 60%;
+        margin-left: 20%;
+    }
+    
     /* Sites */
     #flexSite{
         flex-direction: column;
