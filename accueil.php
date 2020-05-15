@@ -91,10 +91,14 @@ include "nav.php";
                 <li class="liPlan"><a class="aFooter" href="admin.php">Admin</a></li>
             </ul>
         </li>
-        <li class="liFooter">Mentions légales</li>
+        <li class="liFooter"><a <?php if (PAGE == 'mentionsLeg') {
+                echo ' class="footer_active"';
+            } ?> href="mentionsLeg.php">Mentions légales</a></li>
         <li class="liFooter">Politique de confidentialité</li>
         <li class="liFooter">Conditions d'utilisation</li>
-        <li class="liFooter"><a class="aFooter" href="contact_form.php">Contact</a></li>
+        <li class="liFooter"><a <?php if (PAGE == 'contact') {
+                echo ' class="footer_active"';
+            } ?> href="contact_form.php">Contact</a></li>
     </ul>
 </footer>
 

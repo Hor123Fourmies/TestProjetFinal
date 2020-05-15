@@ -101,7 +101,7 @@ $siteInternet = $row['site_internet'];
 
 }
 
-include "footer.php";
+
 ?>
 
 </body>

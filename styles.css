@@ -13,7 +13,6 @@ nav{
 
 .nav_active{
     color: goldenrod;
-
 }
 
 nav ul{
@@ -434,7 +433,19 @@ footer{
 .liFooter{
     list-style-type: none;
     font-size: 14px;
+}
 
+.footer_active{
+    color: goldenrod;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color:white;
+}
+
+footer ul li a:hover{
+    color: #A2CDF2;
 }
 
 .aFooter{
@@ -443,19 +454,25 @@ footer{
 }
 
 .aFooter:hover{
-    color: goldenrod;
+    color: #A2CDF2;
 }
 
 .liPlan{
     list-style-type: none;
     font-size: 11px;
-
 }
 
 .ulPlan{
     padding-left: 0;
 }
 
+.divMentLeg{
+    margin-left: 20%;
+}
+
+.divMentLeg span{
+    font-weight: normal;
+}
 
 /*Media query pour les smartphones*/
 
@@ -472,7 +489,7 @@ footer{
         width: 60%;
         margin-left: 20%;
     }
-    
+
     /* Sites */
     #flexSite{
         flex-direction: column;
@@ -700,8 +717,9 @@ footer{
         text-align: start;
     }
 
-
-
+    .divMentLeg{
+        margin-left: 15%;
+    }
 
 
 }

@@ -27,6 +27,9 @@ include "nav.php";
 
 <script src="scriptAjax.js"></script>
 
+<?php
+include "footer.php";
+?>
 </body>
 </html>
 
