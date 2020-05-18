@@ -79,7 +79,7 @@ include "nav.php";
 
 <footer style="height: auto">
     <ul class="ulFooter">
-        <li class="liFooter">Copyright 2020</li>
+        <li class="liFooter">© 2020</li>
         <li class="liFooter" id="liPlanSite">Plan du site
             <ul class="ulPlan">
                 <li class="liPlan"><a class="aFooter" href="accueil.php">Accueil</a></li>
