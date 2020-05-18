@@ -34,7 +34,7 @@ include "nav2.php";
         D’autre part et conformément à la jurisprudence, les erreurs ou omissions involontaires qui auraient pu
         subsister malgré nous ne sauraient engager la responsabilité de "Chimay coups de coeur".
 
-        <h4>Avis d’internautes</h4>
+        <h4>Commentaires des membres</h4>
         "Chimay coups de coeur" intègre des commentaires de membres.
         Dans ses publications, le membre s'engage à respecter les règles de droit en vigueur. L'administrateur se réserve un droit de réponse.
 
