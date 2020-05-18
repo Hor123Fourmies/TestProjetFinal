@@ -9,7 +9,7 @@
 
 <footer>
     <ul class="ulFooter">
-        <li class="liFooter">Copyright</li>
+        <li class="liFooter">Copyright 2020</li>
         <li class="liFooter" id="liPlanSite">Plan du site
             <ul class="ulPlan">
                 <li class="liPlan"><a class="aFooter" href="accueil.php">Accueil</a></li>
@@ -22,8 +22,8 @@
             </ul>
         </li>
         <li class="liFooter"><a href="mentionsLeg.php">Mentions légales</a></li>
-        <li class="liFooter">Politique de confidentialité</li>
-        <li class="liFooter">Conditions d'utilisation</li>
+        <li class="liFooter"><a href="polConf.php">Politique de confidentialité</a></li>
+        <li class="liFooter"><a href = "cgu.php">Conditions d'utilisation</a></li>
         <li class="liFooter"><a href="contact_form.php">Contact</a></li>
     </ul>
 </footer>
