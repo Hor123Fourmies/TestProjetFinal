@@ -66,7 +66,7 @@ include "nav.php";
 
 <div id="divAccueil">
     <p>
-        Bienvenue sur mon nouveau site internet, réalisé dans le cadre de mon projet de fin d'année.
+        Bienvenue sur ce nouveau site internet, réalisé dans le cadre de mon projet de fin d'année.
     </p>
     <p>
         Je suis heureuse de partager avec vous mes 'coups de coeur' à visiter à Chimay et aux alentours, en Belgique et en France !
