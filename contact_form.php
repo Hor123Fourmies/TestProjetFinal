@@ -44,7 +44,7 @@ if (!empty($_POST['envoiMessage'])) {
         }
 
         if ($valide) {
-            echo 'tous les champs sont bien remplis';
+            // echo 'Tous les champs sont bien remplis.';
             $to = "hortensere@aol.com";
             $sujet = $nom . " a contacté le site";
             /* Anti-spam + retour à la ligne */
@@ -54,7 +54,7 @@ if (!empty($_POST['envoiMessage'])) {
             $message = stripslashes($message);
 
             if (mail($to, $sujet, $message, $headers)) {
-                $retourMailOk = "Votre message nous est bien parvenu.";
+                $retourMailOk = "Merci. Votre message nous est bien parvenu.";
                 /* Nettoyage des variables */
                 unset($nom);
                 unset($email);
@@ -86,7 +86,7 @@ if (!empty($_POST['envoiMessage'])) {
 
 <?php
 if(isset($erreur)){echo "<p>$erreur</p>";}
-if(isset($retourMailOk)){echo "<p>$retourMailOk</p>";}
+if(isset($retourMailOk)){echo "<p style='text-align: center; color: goldenrod'>$retourMailOk</p>";}
 ?>
 
 <form id="contact_form" method="post" action="contact_form.php">
