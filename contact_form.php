@@ -95,18 +95,17 @@ if(isset($retourMailOk)){echo "<p style='text-align: center; color: goldenrod'>$
 
         <legend>Vos coordonnées</legend>
 
-        <p>
+        <div>
             <label for="nom">Nom :</label>
             <input type="text" name="nom" id="nom" value="<?php if(isset($nom)) echo $nom?>"/>
-            <span class="messErrContactForm"><?php if(isset($erreur_nom)) echo $erreur_nom?></span>
-        </p>
+            <p class="messErrContactForm"><?php if(isset($erreur_nom)) echo $erreur_nom?></p>
+        </div>
 
-        <p>
+        <div>
             <label for="email">Email :</label>
             <input type="text" name="email" id="email" value="<?php if(isset($email)) echo $email?>"/>
-            <span class="messErrContactForm"><?php if(isset($erreur_email)) echo $erreur_email?></span>
-
-        </p>
+            <p class="messErrContactForm"><?php if(isset($erreur_email)) echo $erreur_email?></p>
+        </div>
 
             <input type="hidden" name="adresse" id="input_adresse">
 
@@ -126,11 +125,11 @@ if(isset($retourMailOk)){echo "<p style='text-align: center; color: goldenrod'>$
             "/>
         </p>
 -->
-        <p>
+        <div>
             <label for="message">Message :</label>
             <textarea name="message" id="message" cols="20" rows="10"></textarea>
-            <span class="messErrContactForm"><?php if(isset($erreur_message)) echo $erreur_message?></span>
-        </p>
+            <p class="messErrContactForm"><?php if(isset($erreur_message)) echo $erreur_message?></p>
+        </div>
 
     </fieldset>
 
