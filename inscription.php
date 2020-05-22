@@ -188,7 +188,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
         <div>
             <p style="color:#027373"><?php if (isset($insertion)) echo $insertion ?></p>
-            <p style="color:#027373"><?php if (isset($insertion)) echo $redirection ?></p>
+            <p style="color:#027373"><?php if (isset($redirection)) echo $redirection ?></p>
         </div>
 
     </form>

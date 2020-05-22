@@ -84,7 +84,7 @@ if(!empty($texte_comment)){
     }
 }
 else{
-    echo "<p>Le champs 'Votre commentaire' est vide.</p>";
+    echo "<p>Le champ 'Votre commentaire' est vide.</p>";
     echo "<p>Retour automatique à la page précédente...</p>";
     // header("refresh:2;url=comment_post.php?id=$idSite");
 ?>

@@ -102,7 +102,7 @@ if($sql = "SELECT * FROM site WHERE id=$idSiteGet"){
         case $cpte_comment === 0:
             echo "<p class='pNbComm'>Il n'y a aucun commentaire.</p>";
             break;
-        case $cpte_comment === 1:
+        case $cpte_comment = 1:
             echo "<p class='pNbComm'>Il y a un commentaire.</p>";
             break;
         case $cpte_comment > 1:

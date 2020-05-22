@@ -23,6 +23,11 @@ if (!empty($_POST['envoiMessage'])) {
             $erreur_nom = "Vous n'avez pas rempli votre nom.";
         }
 
+        if (!preg_match('`^\w{3,25}$`', $nom)){
+            $valide = false;
+            $erreur_nom2 = "Certains caractères ne sont pas autorisés ou votre pseudo n'a pas la bonne longueur.";
+        }
+
         if (!preg_match("/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i", $email)) {
             $valide = false;
             $erreur_email = "Votre email n'est pas valide.";
@@ -99,6 +104,7 @@ if(isset($retourMailOk)){echo "<p style='text-align: center; color: goldenrod'>$
             <label for="nom">Nom :</label>
             <input type="text" name="nom" id="nom" value="<?php if(isset($nom)) echo $nom?>"/>
             <p class="messErrContactForm"><?php if(isset($erreur_nom)) echo $erreur_nom?></p>
+            <p class="messErrContactForm"><?php if(isset($erreur_nom2)) echo $erreur_nom2?></p>
         </div>
 
         <div>
