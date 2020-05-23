@@ -56,7 +56,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])) {
         case $total === 0:
             echo "Vous n'avez posté aucun commentaire.";
             break;
-        case $total === 1:
+        case $total == 1:
             echo "Vous avez posté un commentaire.";
             break;
         case $total > 1:

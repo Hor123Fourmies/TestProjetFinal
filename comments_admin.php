@@ -93,7 +93,7 @@ if (isset($_SESSION['loginAdmin']) && isset($_SESSION['mdpAdmin'])) {
 
     $idPost = isset($_POST['idComment']) ? $_POST['idComment'] : NULL;
     $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : NULL;
-    $login = isset($_POST['login']) ? $_POST['reponse'] : NULL;
+    $login = isset($_POST['login']) ? $_POST['login'] : NULL;
     $date = isset($_POST['today']) ? $_POST['today'] : NULL;
 
 
